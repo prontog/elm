@@ -10,6 +10,7 @@
     };
 
     var docpadConfig = {
+        port: 9777,
         templateData: {
             site: {
                 url: "http://www.lefkadika.gr",
@@ -21,8 +22,12 @@
                 keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
                 styles: [//'/vendor/normalize.css', 
                          //'/vendor/h5bp.css', 
-                         '/styles/style.css'],
-                scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
+                         '/vendor/jquery-ui-1.10.4.css',
+                         //'/styles/style.css'
+                         ],
+                scripts: [//"<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
+                          '/vendor/jquery-1.10.2.js',
+                          '/vendor/jquery-ui-1.10.4.js',
                           '/vendor/log.js', 
                           //'/vendor/modernizr.js', 
                           '/scripts/script.js']
@@ -43,6 +48,13 @@
             }
         },
         collections: {
+            pages: function () {
+                return this.getCollection("html")
+                           .findAllLive()
+                           .on("add", function (model) {
+                                model.setMetaDefaults({ layout: "default" });
+                            });
+            },
             menuItems: function () {
                 return this.getCollection("html")
                            .findAllLive({ menu: true });
@@ -51,7 +63,7 @@
                 return this.getCollection("html")
                            .findAllLive({ relativeOutDirPath: "news" }, [{ date: -1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "news" });
+                                model.setMetaDefaults({ layout: "pr" });
                             });
             }
         },

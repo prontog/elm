@@ -10,22 +10,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Site Properities -->
-	<title><%= this.docpad.getTemplateData().getPreparedTitle() %></title>
-	<meta name="description" content="<%= this.getPreparedDescription() %>" />
-	<meta name="keywords" content="<%= this.getPreparedKeywords() %>" />
+	<title><%= @getPreparedTitle() %></title>
+	<meta name="description" content="<%= @getPreparedDescription() %>" />
+	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
 	<!-- DocPad Meta -->
-	<%- this.docpad.getBlock('meta').toHTML() %>
+	<%- @getBlock('meta').toHTML() %>
 
 	<!-- DocPad Styles + Our Own -->
-	<%- this.docpad.getBlock('styles').add(this.docpad.ssite.styles).toHTML() %>
+	<%- @getBlock('styles').add(@site.styles).toHTML() %>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 </head>
 <body>
-	<h1><%= this.document.title %></h1>
-    <%- this.docpad.content %>
+    <img src="images/logo.png"></img>
+    <div></div>
+	<h1><%= @document.title %></h1>
+    <%- @content %>
     <!-- DocPad Scripts + Our Own -->
-	<%- this.docpad.getBlock('scripts').add(this.docpad.site.scripts).toHTML() %>
+	<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
 </body>
 </html>

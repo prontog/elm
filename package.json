@@ -9,12 +9,11 @@
   "dependencies": {
     "docpad": "~6.64.2",
     "docpad-plugin-coffeescript": "~2.4.0",
-    "docpad-plugin-consolidate": "~2.1.0",
-    "docpad-plugin-jshint": "~2.1.4",
     "docpad-plugin-livereload": "~2.6.0",
     "docpad-plugin-marked": "~2.2.1",
     "docpad-plugin-stylus": "~2.6.0",
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "docpad-plugin-eco": "~2.0.3"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {

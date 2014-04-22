@@ -5,11 +5,11 @@ layout: "default"
 ---
 
 <ul>
-    <% for (var page in this.docpad.getTemplateData().getCollection("news").toJSON()) { %>
+    <% for page in @getCollection("news").toJSON(): %>
         <li class="<%= if page.id is this.document.id then 'active' else 'inactive' %>">
             <%= page.date %>
             <div><%= page.newsInfo %></div>
             <a href="<%= page.url %>"> περισσότερα εδώ </a>
         </li>
-    <% } %>
+    <% end %>
 </ul>
