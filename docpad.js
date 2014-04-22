@@ -20,16 +20,13 @@
                 description: "When your website appears in search results in say Google, the text here will be shown underneath your website's title.",
                 // ToDo:
                 keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
-                styles: [//'/vendor/normalize.css', 
-                         //'/vendor/h5bp.css', 
-                         '/vendor/jquery-ui-1.10.4.css',
-                         //'/styles/style.css'
+                styles: ['/vendor/normalize.css', 
+                         '/vendor/h5bp.css', 
+                         '/styles/style.css'
                          ],
-                scripts: [//"<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
-                          '/vendor/jquery-1.10.2.js',
-                          '/vendor/jquery-ui-1.10.4.js',
+                scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
                           '/vendor/log.js', 
-                          //'/vendor/modernizr.js', 
+                          '/vendor/modernizr.js', 
                           '/scripts/script.js']
             },
             getPreparedTitle: function() {
@@ -55,15 +52,11 @@
                                 model.setMetaDefaults({ layout: "default" });
                             });
             },
-            menuItems: function () {
-                return this.getCollection("html")
-                           .findAllLive({ menu: true });
-            },
             news: function () {
                 return this.getCollection("html")
                            .findAllLive({ relativeOutDirPath: "news" }, [{ date: -1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "pr" });
+                                model.setMetaDefaults({ layout: "pr", menuHidden: true });
                             });
             }
         },
@@ -92,6 +85,15 @@
                         return next();
                     }
                 });
+            }
+        },
+        plugins: {
+            menu: {
+//                menuOptions: {
+//                   optimize: true,
+//                   skipEmpty: true,
+//                   skipFiles: /\.(js|styl|css)/
+//                }
             }
         }
     };

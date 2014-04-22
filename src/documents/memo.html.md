@@ -1,4 +1,4 @@
 ---
 title: Υπόμνημα
-menu: true
+menuOrder: 2
 ---
