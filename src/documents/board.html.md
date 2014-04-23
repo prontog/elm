@@ -1,5 +1,5 @@
 ---
 title: Διοικητικό Συμβούλιο
-menuOrder: 4
+menuOrder: 6
 ---
 

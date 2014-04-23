@@ -83,7 +83,7 @@
                 port: 9777,
                 templateData: {
                     site: {
-                        url: "localhost"
+                        url: "http://www.lefkadika.gr"
                     }
                 }
             }
@@ -123,6 +123,12 @@
                     {raw: 'date', format: 'YYYY', formatted: 'publicationDate'},
                     {raw: 'date', format: 'DD/MM/YYYY', formatted: 'newsDate'}
                 ]
+            },            
+            sitemap: {                
+                //cachetime: 600000,
+                changefreq: 'always',
+                priority: 0.5,
+                filePath: 'sitemap.xml'
             }
         }
     };

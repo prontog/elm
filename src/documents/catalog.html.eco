@@ -1,6 +1,6 @@
 ---
 title: Κατάλογος εκδόσεων
-menuOrder: 6
+menuOrder: 4
 ---
 
 <% for pub in @getCollection("publications").toJSON(): %>
