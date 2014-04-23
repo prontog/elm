@@ -1,4 +1,5 @@
-<% console.log "\n" + "Rendering page " + @document.url %>
+<% @trace.page("\n" + "Rendering page " + @document.url) %>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -32,13 +33,13 @@
     <header class="page-header">
         <h1><%- @site.title %></h1>
         <a href="<%= @site.url %>"><img src="/images/logo.png"></img></a>
-        <nav>
+        <nav>            
             <% renderMenu = (items) => %>
-            <% console.log "Rendering the menu of " + @document.url %>
+            <% @trace.menu("Rendering the menu of " + @document.url) %>
             <ul class="nav">
                 <% for item  in items: %>
                     <% if item.title: %>
-                        <% console.log + "Rendering menu item " + item.title %>
+                        <% @trace.menu("Rendering menu item " + item.title) %>
                         <!-- Highlight menu item if its `item.state` is not false -->
                         <li <% if item.state: %> class="selected" <% end %> >
                             <!-- Remove link if we’re currently viewing this document -->
@@ -52,11 +53,11 @@
                                 <%- renderMenu(item.children) %>
                             <% end %>
                         </li>
-                        <% console.log "Finished rendering menu item " + item.title %>
+                        <% @trace.menu("Finished rendering menu item " + item.title) %>
                     <% end %>
                 <% end %>
             </ul>   
-            <% console.log "Finished rendering menu of " + @document.url %>
+            <% @trace.menu("Finished rendering menu of " + @document.url) %>
             <% end %>
             <!-- Run `renderMenu` partial against passed `menuItems` meta-data  -->
             <%= renderMenu @generateMenu(@document.url) %>
@@ -66,12 +67,12 @@
         <h1><%= @document.title %></h1>
         <%- @content %>
     </article>
-    <footer class="page-footer">
-        <p class="small-text">Support: <a href="mailto:info@emmet.io">info@emmet.io</a><br />Created with <a href="https://github.com/bevry/docpad">DocPad</a> and <a href="http://gruntjs.com">Grunt.js</a><br />Minimal theme by <a href="https://github.com/orderedlist/minimal">orderedlist</a></p>
-        <p class="small-text"><a href="https://github.com/emmetio/emmet-docs/tree/master/src/documents<%= @document.url %>.md">View page source on GitHub</a></p>
+    <footer class="page-footer">        
+        <p class="small-text">Ο κώδικας του ιστότοπου βρίσκεται στο <a href="https://github.com/prontog/elm">GitHub</a></p>
     </footer>
     <!-- DocPad Scripts + Our Own -->
 	<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
 </body>
 </html>
-<% console.log "Rendered page " + @document.url %>
+
+<% @trace.page("Rendered page " + @document.url) %>

@@ -5,10 +5,11 @@ menuOrder: 3
 
 <ul>
     <% for page in @getCollection("news").toJSON(): %>
-        <li class="<%= if page.id is this.document.id then 'active' else 'inactive' %>">
-            <%= page.date.getDate() + "/" + page.date.getMonth() + "/" + page.date.getFullYear() %>
-            <div><%= page.newsInfo %></div>
-            <a href="<%= page.url %>"> περισσότερα εδώ </a>
+        <li>
+            <%= page.newsDate %>
+            <div>
+                <%= page.newsInfo + " " %><a href="<%= page.url %>">περισσότερα εδώ </a>
+            </div>
         </li>
     <% end %>
 </ul>

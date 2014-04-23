@@ -15,7 +15,9 @@
     "docpad-plugin-menu": "~2.1.0",
     "docpad-plugin-partials": "~2.9.0",
     "docpad-plugin-stylus": "~2.6.0",
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "docpad-plugin-datefromfilename": "~2.0.4",
+    "docpad-plugin-moment": "~2.0.2"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {

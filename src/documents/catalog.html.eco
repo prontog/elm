@@ -1,0 +1,16 @@
+---
+title: Κατάλογος εκδόσεων
+menuOrder: 6
+---
+
+<% for pub in @getCollection("publications").toJSON(): %>
+    <div>
+        <div>Τίτλος: <%- pub.title %></div>
+        <div>Συγγραφέας: <%- pub.author %></div>
+        <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>
+        <div><a href="<%= pub.image %>"><img src="<%= pub.thumbnail%>"></img></a></div>
+        <div>Σελίδες: <%- pub.numPages %></div>
+        <div>Λίγα λόγια: <%- pub.info %></div>
+        <br/>
+    </div>
+<% end %>

@@ -9,8 +9,7 @@
             return -1; 
     };
 
-    var docpadConfig = {
-        port: 9777,
+    var docpadConfig = {        
         templateData: {
             site: {
                 url: "http://www.lefkadika.gr",
@@ -42,7 +41,19 @@
             getPreparedKeywords: function() {
                 return this.site.keywords.concat(this.document.keywords || [])
                                          .join(', ');
-            }
+            },
+            trace: {
+                pageFlag: false,  
+                menuFlag: false,
+                page: function(msg) {
+                    if (this.pageFlag)
+                        console.log(msg);
+                },
+                menu: function(msg) {
+                    if (this.menuFlag)
+                        console.log(msg);
+                }
+            }                    
         },
         collections: {
             pages: function () {
@@ -58,13 +69,21 @@
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "pr", menuHidden: true });
                             });
+            },
+            publications: function () {
+                return this.getCollection("html")
+                           .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])
+                           .on("add", function (model) {
+                                model.setMetaDefaults({ layout: "publication", menuHidden: true });
+                            });
             }
         },
         environments: {
             development: {
+                port: 9777,
                 templateData: {
                     site: {
-                        url: false
+                        url: "localhost"
                     }
                 }
             }
@@ -89,11 +108,21 @@
         },
         plugins: {
             menu: {
-//                menuOptions: {
-//                   optimize: true,
-//                   skipEmpty: true,
-//                   skipFiles: /\.(js|styl|css)/
-//                }
+                menuOptions: {
+                   //optimize: true,
+                   //skipEmpty: true,
+                   skipFiles: /\.(js|styl|css)/
+                }
+            },            
+            datefromfilename: {
+                //removeDate: false,
+                //dateRegExp: /\b(\d{4})-(\d{2})-(\d{2})-/
+            },
+            moment: {
+                formats: [
+                    {raw: 'date', format: 'YYYY', formatted: 'publicationDate'},
+                    {raw: 'date', format: 'DD/MM/YYYY', formatted: 'newsDate'}
+                ]
             }
         }
     };
