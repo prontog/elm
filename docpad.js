@@ -63,6 +63,14 @@
                                 model.setMetaDefaults({ layout: "default" });
                             });
             },
+            // Set menuHiddden to true for auto generated documents (paging).                                
+            auto: function () {
+                return this.getCollection("pages")
+                           .findAllLive({ isPagedAuto: { $eq: true } })
+                           .on("add", function (model) {
+                                model.setMetaDefaults({ menuHidden: true });
+                            });
+            },            
             news: function () {
                 return this.getCollection("html")
                            .findAllLive({ relativeOutDirPath: "news" }, [{ date: -1 }])
@@ -83,7 +91,7 @@
                 port: 9777,
                 templateData: {
                     site: {
-                        url: "http://www.lefkadika.gr"
+                        url: "http://localhost:9777"
                     }
                 }
             }

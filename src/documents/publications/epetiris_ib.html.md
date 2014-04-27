@@ -4,7 +4,7 @@ author:
 numPages: 669
 date: 2013
 place: Αθήνα
-thumbnail: epetiris_ib.png-th.png
+thumbnail: epetiris_ib-th.png
 image: epetiris_ib.png
 info: 
 ---

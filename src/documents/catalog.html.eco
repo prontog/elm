@@ -1,16 +1,49 @@
 ---
 title: Κατάλογος εκδόσεων
 menuOrder: 4
+isPaged: true
+pagedCollection: "publications"
+pageSize: 10
 ---
 
-<% for pub in @getCollection("publications").toJSON(): %>
+<!-- Page Content -->
+<% for pub in @getPageCollection("publications").toJSON(): %>
+    <!-- consider using article tag instead -->
     <div>
         <div>Τίτλος: <%- pub.title %></div>
         <div>Συγγραφέας: <%- pub.author %></div>
         <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>
-        <div><a href="<%= pub.image %>"><img src="<%= pub.thumbnail%>"></img></a></div>
+        <div><a href="<%= "/images/publications/" + pub.image %>"><img src="<%= "/images/publications/" + pub.thumbnail%>"></img></a></div>
         <div>Σελίδες: <%- pub.numPages %></div>
         <div>Λίγα λόγια: <%- pub.info %></div>
         <br/>
     </div>
 <% end %>
+
+<!-- Page Listing -->
+<div class="pagination">
+    <ul>
+        <!-- Previous Page Button -->
+        <% unless @hasPrevPage(): %>
+            <li class="disabled"><span>&lt;</span></li>
+        <% else: %>
+            <li><a href="<%= @getPrevPage() %>">&lt;</a></li>
+        <% end %>
+
+        <!-- Page Number Buttons -->
+        <% for pageNumber in [0..@document.page.count-1]: %>
+            <% if @document.page.number is pageNumber: %>
+                <li class="active"><span><%= pageNumber + 1 %></span></li>
+            <% else: %>
+                <li><a href="<%= @getPageUrl(pageNumber) %>"><%= pageNumber + 1 %></a></li>
+            <% end %>
+        <% end %>
+
+        <!-- Next Page Button -->
+        <% unless @hasNextPage(): %>
+            <li class="disabled"><span>&gt;</span></li>
+        <% else: %>
+            <li><a href="<%= @getNextPage() %>">&gt;</a></li>
+        <% end %>
+    </ul>
+</div>
