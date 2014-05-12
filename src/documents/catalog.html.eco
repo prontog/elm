@@ -11,11 +11,19 @@ pageSize: 10
     <!-- consider using article tag instead -->
     <div>
         <div>Τίτλος: <%- pub.title %></div>
-        <div>Συγγραφέας: <%- pub.author %></div>
+        <% if pub.isbn: %>
+            <div>ISBN: <%- pub.isbn %></div>
+        <% end %>
+        <% if pub.author: %>
+            <div>Συγγραφέας: <%- pub.author %></div>
+        <% end %>
         <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>
         <div><a href="<%= "/images/publications/" + pub.image %>"><img src="<%= "/images/publications/" + pub.thumbnail%>"></img></a></div>
         <div>Σελίδες: <%- pub.numPages %></div>
-        <div>Λίγα λόγια: <%- pub.info %></div>
+        <div>Τιμή: <%- pub.price %></div>
+        <% if pub.info: %>
+            <div>Λίγα λόγια: <%- pub.info %></div>
+        <% end %>
         <br/>
     </div>
 <% end %>
