@@ -17,8 +17,9 @@ pageSize: 10
         <% if pub.author: %>
             <div>Συγγραφέας: <%- pub.author %></div>
         <% end %>
-        <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>
-        <div><a href="<%= "/images/publications/" + pub.image %>"><img src="<%= "/images/publications/" + pub.thumbnail%>"></img></a></div>
+        <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>        
+        <div>
+            <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a></div>
         <div>Σελίδες: <%- pub.numPages %></div>
         <div>Τιμή: <%- pub.price %></div>
         <% if pub.info: %>

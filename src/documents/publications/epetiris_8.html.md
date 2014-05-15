@@ -3,8 +3,6 @@ title: Επετηρίς Εταιρείας Λευκαδικών Μελετών, 
 numPages: 408
 date: 1995
 place: Αθήνα
-thumbnail: epetiris_8-th.png
-image: epetiris_8.png
 info: 
 price: 15
 ---

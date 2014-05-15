@@ -3,8 +3,6 @@ title: Επετηρίς Εταιρείας Λευκαδικών Μελετών, 
 numPages: 287
 date: 2009
 place: Αθήνα
-thumbnail: epetiris_11-th.png
-image: epetiris_11.png
 info: 
 price: 15
 ---

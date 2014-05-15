@@ -26,7 +26,7 @@
                 scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
                           '/vendor/log.js', 
                           '/vendor/modernizr.js', 
-                          '/scripts/script.js']
+                          '/scripts/script.js']                
             },
             getPreparedTitle: function() {
                 if (this.document.title) {
@@ -53,7 +53,30 @@
                     if (this.menuFlag)
                         console.log(msg);
                 }
-            }                    
+            },
+            imagesRoot: "/images/",
+            getImage: function(page) {
+                var imagePath;
+                if (!page) {
+                    imagePath = this.imagesRoot + "not_available.png";
+                }
+                else if (!page.image) {
+                    imagePath = this.imagesRoot + page.relativeBase + ".png";
+                }
+                                                
+                return imagePath;
+            },
+            getThumb: function(page) {
+                var imagePath;
+                if (!page) {
+                    imagePath = this.imagesRoot + "not_available.png";
+                }
+                else if (!page.image) {
+                    imagePath = this.imagesRoot + page.relativeBase + "-tb.png";
+                }
+                                                
+                return imagePath;
+            }
         },
         collections: {
             pages: function () {
