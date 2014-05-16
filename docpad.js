@@ -106,7 +106,9 @@
                 return this.getCollection("html")
                            .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "publication", menuHidden: true });
+                                model.setMetaDefaults({ layout: "publication", 
+                                                        menuHidden: true,
+                                                        place: "Αθήνα" });
                             });
             }
         },

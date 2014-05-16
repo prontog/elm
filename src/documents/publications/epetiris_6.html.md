@@ -3,7 +3,7 @@ title: Επετηρίς Εταιρείας Λευκαδικών Μελετών, 
 numPages: 321
 extraPubInfo: 11 σ. πίνακες
 date: 1984
-place: Αθήνα
 info: 
 price: 12
+tag: [ Επετηρίδες, Βιβλία ]
 ---

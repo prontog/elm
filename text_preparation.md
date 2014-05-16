@@ -12,3 +12,25 @@ s/-\n+/ /
 
 * concatenate lines that were separated by ,
 s/(,)\n/\1 /
+
+
+For some of the documents specific steps where made:
+
+### To split the text extracted from the catalog PDF:
+* A special separator was added before each line containg a price (i.e "blah blah . . . . . . 8")
+sed '/\( \.\)\{2,\}/i\
+@@
+' Katalogos_Paste.txt | awk '
+BEGIN { RS = "@@"; } 
+NR > 1 {
+    print "---" > NR 
+    print "title: " > NR 
+    print "numPages: " > NR 
+    print "date: " > NR 
+    print "place: Αθήνα" > NR 
+    print "info: " > NR 
+    print "price: " > NR 
+    print "tag: [ Βιβλία ]" > NR 
+    print "---" > NR 
+    print > NR 
+}'
