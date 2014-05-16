@@ -21,7 +21,8 @@
                 keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
                 styles: ['/vendor/normalize.css', 
                          '/vendor/h5bp.css', 
-                         '/styles/style.css'
+                         '/styles/style.css',
+                         '/styles/purecssmenu.css'
                          ],
                 scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
                           '/vendor/log.js', 
@@ -71,8 +72,8 @@
                 if (!page) {
                     imagePath = this.imagesRoot + "not_available.png";
                 }
-                else if (!page.image) {
-                    imagePath = this.imagesRoot + page.relativeBase + "-tb.png";
+                else if (!page.thumbnail) {
+                    imagePath = this.imagesRoot + page.relativeBase + "-th.png";
                 }
                                                 
                 return imagePath;

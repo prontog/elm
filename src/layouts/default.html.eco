@@ -32,19 +32,21 @@
 <body>
     <header class="page-header">
         <h1><%- @site.title %></h1>
-        <a href="<%= @site.url %>"><img src="/images/logo.png"></img></a>
-        <nav>            
+        <a href="<%= @site.url %>"><img src="/images/logo.png"/></a>
+<!--        <nav id="horizontalmenu">            -->
+        <nav>
             <% renderMenu = (items) => %>
             <% @trace.menu("Rendering the menu of " + @document.url) %>
-            <ul class="nav">
+            <ul class="pureCssMenu pureCssMenum">
                 <% for item  in items: %>
                     <% if item.title: %>
                         <% @trace.menu("Rendering menu item " + item.title) %>
                         <!-- Highlight menu item if its `item.state` is not false -->
-                        <li <% if item.state: %> class="selected" <% end %> >
+                        <!--<li <% if item.state: %> class="selected" <% end %> >-->
+                        <li class="pureCssMenui">
                             <!-- Remove link if we’re currently viewing this document -->
                             <% if item.state != 'current': %>
-                                <a href="<%= item.url %>"><%= item.title %></a>
+                                <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
                             <% else: %>
                                 <strong><%= item.title %></strong>
                             <% end %>
