@@ -21,7 +21,7 @@ pageSize: 10
         <div>
             <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a></div>
         <div>Σελίδες: <%- pub.numPages %></div>
-        <div>Τιμή: <%- pub.price %></div>
+        <div>Τιμή: <%- pub.price %> </div>
         <% if pub.info: %>
             <div>Λίγα λόγια: <%- pub.info %></div>
         <% end %>
@@ -56,3 +56,5 @@ pageSize: 10
         <% end %>
     </ul>
 </div>
+
+Στις τιμές δεν συμπεριλαμβάνεται Φ.Π.Α. 6.5 %
