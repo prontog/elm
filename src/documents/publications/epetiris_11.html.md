@@ -1,8 +1,13 @@
 ---
 title: Επετηρίς Εταιρείας Λευκαδικών Μελετών, τόμος ΙΑ΄, 2006-2008
-numPages: 287
-date: 2009
+editions:
+    - number: 1
+      date: 2009
+      place: Αθήνα
+      pages: 287
+      info: 
+      isbn: 
+      price: 15
+tag: [ Επετηρίδες ]
 info: 
-price: 15
-tag: [ Επετηρίδες, Βιβλία ]
 ---

@@ -11,17 +11,17 @@ pageSize: 10
     <!-- consider using article tag instead -->
     <div>
         <div>Τίτλος: <%- pub.title %></div>
-        <% if pub.isbn: %>
-            <div>ISBN: <%- pub.isbn %></div>
+        <% if pub.currentEdition.isbn: %>
+            <div>ISBN: <%- pub.currentEdition.isbn %></div>
         <% end %>
         <% if pub.author: %>
             <div>Συγγραφέας: <%- pub.author %></div>
         <% end %>
-        <div>Εκδόθηκε: <%- pub.place + " " + pub.publicationDate %></div>        
+        <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>        
         <div>
             <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a></div>
-        <div>Σελίδες: <%- pub.numPages %></div>
-        <div>Τιμή: <%- pub.price %> </div>
+        <div>Σελίδες: <%- pub.currentEdition.pages %></div>
+        <div>Τιμή: <%- pub.currentEdition.price %> € </div>
         <% if pub.info: %>
             <div>Λίγα λόγια: <%- pub.info %></div>
         <% end %>

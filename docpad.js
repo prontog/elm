@@ -107,8 +107,18 @@
                            .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "publication", 
-                                                        menuHidden: true,
-                                                        place: "Αθήνα" });
+                                                        menuHidden: true });
+                                var editions = model.getMeta("editions");                                
+                                if (editions) {
+                                    var currentEdition = editions[0];
+                                    for (var e in editions) {
+                                        if (e.number > currentEdition.number) {
+                                            currentEdition = e;
+                                        }
+                                    }
+
+                                    model.setMeta("currentEdition", currentEdition);
+                                }                               
                             });
             }
         },

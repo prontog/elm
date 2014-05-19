@@ -23,16 +23,24 @@ sed '/^[0-9][0-9]*\./i\
 ' Katalogos_Calibre.txt | awk '
 BEGIN { RS = "@@"; } 
 NR > 1 {
-    outFile = "out/" NR
+    outFile = "out/" NR ".html.md"
     print "---" > outFile 
     print "title: " > outFile
     print "author: "  > outFile
-    print "numPages: " > outFile 
-    print "date: " > outFile 
-    print "place: Αθήνα" > outFile 
-    print "info: " > outFile 
-    print "price: " > outFile 
-    print "tag: [ Βιβλία ]" > outFile 
+    print "contributors: " > outFile
+    print "editions: " > outFile 
+    print "    - number: 1" > outFile 
+    print "      date: " > outFile 
+    print "      place: Αθήνα" > outFile 
+    print "      pages: " > outFile 
+    print "      info: " > outFile 
+    print "      isbn: " > outFile 
+    print "      price: " > outFile 
+    print "tag: [  ]" > outFile     
+    print "info: " > outFile
     print "---" > outFile 
     print > outFile 
 }'
+
+
+    

@@ -1,8 +1,13 @@
 ---
 title: Επετηρίς Εταιρείας Λευκαδικών Μελετών, τόμος Ι΄, 2004-2005
-numPages: 376
-date: 2006
+editions:
+    - number: 1
+      date: 2006
+      place: Αθήνα
+      pages: 376
+      info: 
+      isbn: 
+      price: 15
+tag: [ Επετηρίδες ]
 info: 
-price: 15
-tag: [ Επετηρίδες, Βιβλία ]
 ---
