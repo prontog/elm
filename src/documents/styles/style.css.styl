@@ -1,50 +1,28 @@
 h1
-    color: red
+    // color: red
+    color: rgb(255, 25, 104)
+    text-align: center
     
 news
     color: blue
+
+body 
+    background-color: rgb(251, 250, 218)
+
+.logo
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+.page-content
+    margin-left: auto
+    margin-right: auto
+    //width: 6em
     
-/* Defines the unordered list attributes: the list marker is removed, the space
-between the element border and the element content is set to 0 using the padding property
-and the space around the elements is also 0. */
-
-#horizontalmenu ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-/* Defines the list items' attributes: the items will float to the left, their position
-will be relative to the normal one; the space between the element's right border and the element
-content is set to 20 using the padding property; the items are displayed
-in a block with a 3D inset border. */
-
-#horizontalmenu li {
-    float: left;
-    position: relative;
-    padding-right: 20;
-    display: block;
-    border: 3px solid #000000;
-    border-style: inset;
-}
-/* Hides the list items of the unordered list. */
-
-#horizontalmenu li ul {
-    display: none;
-    position: absolute;
-}
-/* When the mouse pointer hovers over the menu elements, the child unordered
-list items are shown in blocks; the width is set in em units. */
-
-#horizontalmenu li:hover ul {
-    display: block;
-    background: none;
-    height: auto;
-    width: 8em;
-}
-/* No floating elements allowed on either the left or the right side of
-the elements. */
-
-#horizontalmenu li ul li {
-    clear: both;
-    border-style: none;
-}
+p
+    text-indent: 3em
+    
+.menu-container
+    display: block
+    margin-left: auto
+    margin-right: auto

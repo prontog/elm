@@ -120,6 +120,13 @@
                                     model.setMeta("currentEdition", currentEdition);
                                 }                               
                             });
+            },
+            boards: function () {
+                return this.getCollection("html")
+                           .findAllLive({ relativeOutDirPath: "boards" }, [{ until: -1 }])
+                           .on("add", function (model) {
+                                //model.setMetaDefaults({ layout: "pr", menuHidden: true });
+                            });
             }
         },
         environments: {
