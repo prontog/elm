@@ -180,6 +180,9 @@
                 changefreq: 'always',
                 priority: 0.5,
                 filePath: 'sitemap.xml'
+            },
+            marked: {
+                tables: true
             }
         }
     };

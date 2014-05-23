@@ -1,0 +1,14 @@
+---
+title: Διοικητικά Συμβούλια
+menuOrder: 6
+---
+
+<ul>
+    <% for board in @getCollection("boards").toJSON(): %>        
+        <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
+        <div>
+            <%- board.contentRenderedWithoutLayouts %>
+        </div>
+        <br/>
+    <% end %>
+</ul>

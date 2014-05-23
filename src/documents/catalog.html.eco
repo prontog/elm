@@ -9,24 +9,29 @@ pageSize: 10
 <!-- Page Content -->
 <% for pub in @getPageCollection("publications").toJSON(): %>
     <!-- consider using article tag instead -->
-    <div>
-        <div>Τίτλος: <%- pub.title %></div>
-        <% if pub.currentEdition.isbn: %>
-            <div>ISBN: <%- pub.currentEdition.isbn %></div>
-        <% end %>
-        <% if pub.author: %>
-            <div>Συγγραφέας: <%- pub.author %></div>
-        <% end %>
-        <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>        
-        <div>
-            <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a></div>
-        <div>Σελίδες: <%- pub.currentEdition.pages %></div>
-        <div>Τιμή: <%- pub.currentEdition.price %> € </div>
-        <% if pub.info: %>
-            <div>Λίγα λόγια: <%- pub.info %></div>
-        <% end %>
-        <br/>
+    <div class="publication">
+        <table><tr>
+            <td>                
+                <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a>
+            </td>
+            <td>
+                <div>Τίτλος: <%- pub.title %></div>
+                <% if pub.currentEdition.isbn: %>
+                    <div>ISBN: <%- pub.currentEdition.isbn %></div>
+                <% end %>
+                <% if pub.author: %>
+                    <div>Συγγραφέας: <%- pub.author %></div>
+                <% end %>
+                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>                    
+                <div>Σελίδες: <%- pub.currentEdition.pages %></div>
+                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
+                <% if pub.info: %>
+                    <div>Λίγα λόγια: <%- pub.info %></div>
+                <% end %>        
+            </td>
+        </tr></table>
     </div>
+    <br/>
 <% end %>
 
 <!-- Page Listing -->
@@ -56,5 +61,5 @@ pageSize: 10
         <% end %>
     </ul>
 </div>
-
-Στις τιμές δεν συμπεριλαμβάνεται Φ.Π.Α. 6.5 %
+<br/>
+<p>Στις τιμές δεν συμπεριλαμβάνεται Φ.Π.Α. 6.5 %</p>

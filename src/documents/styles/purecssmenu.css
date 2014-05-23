@@ -36,7 +36,7 @@ ul.pureCssMenu table {
 */
 
 ul.pureCssMenu {
-    position: center;
+    position: relative;
     display: block;
 /*    zoom: 1;*/
 /*    float: left;*/
@@ -68,7 +68,6 @@ ul.pureCssMenu a /*, ul.pureCssMenu li.dis a:hover, ul.pureCssMenu li.sep a:hove
     text-align: left;
     text-decoration: none;
     padding: 4px;
-    _padding-left: 0;
 /*    font: normal 11px Verdana;*/
     color: #444444;
 }
@@ -111,7 +110,7 @@ ul.pureCssMenu li a:hover {
     border-color: #665500;
     border-style: solid;
 /*    font: normal 11px Verdana;*/
-    scolor: #444444;
+    color: #444444;
     text-decoration: none;
 }
 
