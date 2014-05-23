@@ -39,14 +39,8 @@
                 <% for item in items: %>
                     <% if item.title: %>
                         <% @trace.menu("Rendering menu item " + item.title) %>
-                        <!-- Highlight menu item if its `item.state` is not false -->
                         <li class="pureCssMenui">
-                            <!-- Remove link if we’re currently viewing this document -->
-                            <% if item.state != 'current': %>
-                                <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
-                            <% else: %>
-                                <div><%= item.title %></div>
-                            <% end %>
+                            <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
                             <% if item.children: %>
                             <ul class="pureCssMenum">
                                 <%- renderMenu(item.children) %>
@@ -64,8 +58,8 @@
         </div>
     </header>
     <article class="page-content">
-        <br/>
-        <h1><%= @document.title %></h1>
+        <p/>
+        <h1 class="title"><%= @document.title %></h1>
         <%- @content %>
     </article>
     <footer class="page-footer">        
