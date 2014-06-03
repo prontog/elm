@@ -42,6 +42,7 @@ ul.pureCssMenu {
 /*    float: left;*/
     border-style: none;
     margin: auto;
+    overflow: hidden;
 }
 
 ul.pureCssMenu ul {
@@ -50,7 +51,7 @@ ul.pureCssMenu ul {
 
 ul.pureCssMenu li {
     display: block;
-    margin: 2px 0px 0px 2px;
+    margin: 2px 0px 2px 2px;
 /*    font-size: 0px;*/
 }
 

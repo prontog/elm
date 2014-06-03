@@ -8,7 +8,7 @@
             }
             return -1; 
     };
-
+    
     var docpadConfig = {        
         templateData: {
             site: {
@@ -16,9 +16,9 @@
                 oldUrls: ['www.website.com', 'website.herokuapp.com'],
                 title: "Εταιρεία Λευκαδικών Μελετών",
                 // ToDo:
-                description: "When your website appears in search results in say Google, the text here will be shown underneath your website's title.",
+                description: "H Εταιρεία Λευκαδικών Μελετών είναι το μοναδικό επιστημονικό σωματείο της Λευκάδας",
                 // ToDo:
-                keywords: "place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website",
+                keywords: "λευκάδα, λευκαδικά, επιστημονική εταιρεία, επιστημονικό σωματείο, lefkas, history, ιστορία",
                 styles: ['/vendor/normalize.css', 
                          '/vendor/h5bp.css', 
                          '/styles/style.css',
@@ -64,6 +64,9 @@
                 else if (!page.image) {
                     imagePath = this.imagesRoot + page.relativeBase + ".png";
                 }
+                else {
+                   imagePath = page.image;
+                }
                                                 
                 return imagePath;
             },
@@ -74,6 +77,9 @@
                 }
                 else if (!page.thumbnail) {
                     imagePath = this.imagesRoot + page.relativeBase + "-th.png";
+                }
+                else {
+                    imagePath = page.thumbnail;
                 }
                                                 
                 return imagePath;
@@ -104,7 +110,7 @@
             },
             publications: function () {
                 return this.getCollection("html")
-                           .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])
+                           .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])                           
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "publication", 
                                                         menuHidden: true });
@@ -118,6 +124,7 @@
                                     }
 
                                     model.setMeta("currentEdition", currentEdition);
+                                    model.setMeta("date", currentEdition.date);
                                 }                               
                             });
             },
@@ -137,8 +144,23 @@
                         url: "http://localhost:9777"
                     }
                 }
+            },
+            atWork: {
+                port: 9777,
+                templateData: {
+                    site: {
+                        url: "http://172.18.27.159:9777"
+                    }
+                }
+            },
+            demo: {
+                templateData: {
+                    site: {
+                        url: "http://ronto.net/"
+                    }
+                }                
             }
-        },
+        },        
         events: {
             serverExtend: function(opts) {
                 var docpad, latestConfig, newUrl, oldUrls, server;

@@ -12,10 +12,14 @@ pageSize: 10
     <div class="publication">
         <table><tr>
             <td>                
-                <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a>
+                <% if @getThumb(pub) == "MISSING": %>
+                    <img alt="Χωρίς εξώφυλλο"></img>
+                <% else: %>
+                    <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a>
+                <% end %>
             </td>
             <td>
-                <div>Τίτλος: <%- pub.title %></div>
+                <div>Τίτλος: <span class="publication-title"><%- pub.title %></span></div>
                 <% if pub.currentEdition.isbn: %>
                     <div>ISBN: <%- pub.currentEdition.isbn %></div>
                 <% end %>
@@ -26,7 +30,7 @@ pageSize: 10
                 <div>Σελίδες: <%- pub.currentEdition.pages %></div>
                 <div>Τιμή: <%- pub.currentEdition.price %> € </div>
                 <% if pub.info: %>
-                    <div>Λίγα λόγια: <%- pub.info %></div>
+                    <div>Λοιπές πληρ.: <%- pub.info %></div>
                 <% end %>        
             </td>
         </tr></table>
