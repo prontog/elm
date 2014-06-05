@@ -3,12 +3,20 @@ title: Διοικητικά Συμβούλια
 menuOrder: 6
 ---
 
-<ul>
+<div class="boards-list">
+    <h3>Περίοδοι Προεδρίας</h3>
+    <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        
-        <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
-        <div>
-            <%- board.contentRenderedWithoutLayouts %>
-        </div>
+        <a href=<%= "#" + board.basename %>><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>            
         <br/>
     <% end %>
-</ul>
+</div>
+
+<!--Add the periods from the collection-->
+<% for board in @getCollection("boards").toJSON(): %>        
+    <h2 id=<%= board.basename %>><%=  "Περίοδος Προεδρίας " + board.period %></h2>
+    <div>
+        <%- board.contentRenderedWithoutLayouts %>
+    </div>
+    <br/>
+<% end %>
