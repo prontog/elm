@@ -1,9 +1,10 @@
 ---
 title: Διοικητικά Συμβούλια
+menuHidden: false
 menuOrder: 6
 ---
 
-<div class="boards-list">
+<div class="centered-list">
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        

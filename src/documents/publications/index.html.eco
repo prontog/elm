@@ -1,0 +1,14 @@
+---
+title: Κατάλογος εκδόσεων
+menuHidden: false
+menuOrder: 4
+---
+
+<div class="centered-list">
+    <h3>Kατηγορίες</h3>        
+    <% for categoryPage in  @getCollection("publicationCategories").toJSON(): %>
+        <a href=<%= categoryPage.url %>><%= categoryPage.title %></a>            
+        <br/>
+    <% end %>
+    <br/>
+</div>

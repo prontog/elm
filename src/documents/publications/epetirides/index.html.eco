@@ -1,0 +1,7 @@
+---
+title: Επετηρίδες
+menuHidden: false
+menuOrder: 1
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

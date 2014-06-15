@@ -1,0 +1,7 @@
+---
+title: Πρακτικά Συνεδρίων
+menuHidden: false
+menuOrder: 3
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

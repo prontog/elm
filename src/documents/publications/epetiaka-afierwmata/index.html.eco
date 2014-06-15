@@ -1,0 +1,7 @@
+---
+title: Επετειακά - Αφιερώματα
+menuHidden: false
+menuOrder: 6
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

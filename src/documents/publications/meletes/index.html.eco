@@ -1,0 +1,7 @@
+---
+title: Μελέτες
+menuHidden: false
+menuOrder: 2
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

@@ -1,42 +1,13 @@
 ---
 title: Κατάλογος εκδόσεων
-menuOrder: 4
 isPaged: true
 pagedCollection: "publications"
 pageSize: 10
+ignore: true
 ---
 
 <!-- Page Content -->
-<% for pub in @getPageCollection("publications").toJSON(): %>
-    <!-- consider using article tag instead -->
-    <div class="publication">
-        <table><tr>
-            <td>                
-                <% if @getThumb(pub) == "MISSING": %>
-                    <img alt="Χωρίς εξώφυλλο"></img>
-                <% else: %>
-                    <a href="<%= @getImage(pub) %>"><img src="<%= @getThumb(pub) %>"></img></a>
-                <% end %>
-            </td>
-            <td>
-                <div>Τίτλος: <span class="publication-title"><%- pub.title %></span></div>
-                <% if pub.currentEdition.isbn: %>
-                    <div>ISBN: <%- pub.currentEdition.isbn %></div>
-                <% end %>
-                <% if pub.author: %>
-                    <div>Συγγραφέας: <%- pub.author %></div>
-                <% end %>
-                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>                    
-                <div>Σελίδες: <%- pub.currentEdition.pages %></div>
-                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
-                <% if pub.info: %>
-                    <div>Λοιπές πληρ.: <%- pub.info %></div>
-                <% end %>        
-            </td>
-        </tr></table>
-    </div>
-    <br/>
-<% end %>
+<%- @partial("publication_list", { publications: @getPageCollection("publications").toJSON() }) %>
 
 <!-- Page Listing -->
 <div class="pagination">
@@ -65,5 +36,4 @@ pageSize: 10
         <% end %>
     </ul>
 </div>
-<br/>
-<p>Στις τιμές δεν συμπεριλαμβάνεται Φ.Π.Α. 6.5 %</p>
+<%- @partial("publication_footer") %>

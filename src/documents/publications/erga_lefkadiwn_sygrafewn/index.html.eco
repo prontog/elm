@@ -1,0 +1,7 @@
+---
+title: Έργα Λευκάδιων Συγγραφέων
+menuHidden: false
+menuOrder: 7
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

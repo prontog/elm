@@ -1,5 +1,6 @@
 ---
-title: Υπόμνημα
+title: Χρονικό
+menuHidden: false
 menuOrder: 2
 ---
 

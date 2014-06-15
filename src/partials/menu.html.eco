@@ -1,0 +1,27 @@
+---
+layout: null
+---
+
+<div class="menu-container">
+    <% renderMenu = (items) => %>
+    <% @trace.menu("Rendering the menu of " + @document.url) %>
+        <% for item in items: %>
+            <% if item.title: %>
+                <% @trace.menu("Rendering menu item " + item.title) %>
+                <li class="pureCssMenui">
+                    <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
+                    <% if item.children: %>
+                    <ul class="pureCssMenum">
+                        <%- renderMenu(item.children) %>
+                    </ul>
+                    <% end %>
+                </li>
+                <% @trace.menu("Finished rendering menu item " + item.title) %>
+            <% end %>
+        <% end %>   
+    <% @trace.menu("Finished rendering menu of " + @document.url) %>
+    <% end %>
+    <ul class="pureCssMenu pureCssMenum">
+        <%= renderMenu @generateMenu(@document.url) %>
+    </ul>            
+</div>

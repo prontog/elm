@@ -1,0 +1,7 @@
+---
+title: Πρακτικά Συμποσίων
+menuHidden: false
+menuOrder: 4
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

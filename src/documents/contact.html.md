@@ -1,5 +1,6 @@
 ---
 title: Επικοινωνία
+menuHidden: false
 menuOrder: 7
 ---
 

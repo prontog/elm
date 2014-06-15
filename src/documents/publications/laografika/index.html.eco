@@ -1,0 +1,7 @@
+---
+title: Λαογραφικά
+menuHidden: false
+menuOrder: 8
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

@@ -1,0 +1,7 @@
+---
+title: Λευκώματα
+menuHidden: false
+menuOrder: 5
+---
+
+<%- @partial("publication_group", { groupName: @document.title }) %>

@@ -1,0 +1,10 @@
+---
+layout: null
+---
+
+<!--<% _ = @require('underscore') %> -->
+
+<% groups = @getPublicationGroups() %>
+<% group = groups[@groupName] %>    
+<%- @partial("publication_list", { publications: group }) %>    
+<%- @partial("publication_footer") %>

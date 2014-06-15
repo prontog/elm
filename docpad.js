@@ -1,6 +1,10 @@
 (function() {
     "use strict";
     
+    var _ = require('underscore');
+    var fs = require('fs');
+
+    
     var __indexOf = [].indexOf || function(item) {
             for (var i = 0, l = this.length; i < l; i++) { 
                 if (i in this && this[i] === item) 
@@ -8,6 +12,18 @@
             }
             return -1; 
     };
+    
+    var writeToFile = function(fname, text) {        
+        fs.writeFile(fname, text, function (err) {
+          if (err) return console.log(err);
+        });
+    }
+    
+    var appendToFile = function(fname, text) {        
+        fs.appendFile(fname, text, function (err) {
+          if (err) return console.log(err);
+        });
+    }
     
     var docpadConfig = {        
         templateData: {
@@ -29,6 +45,7 @@
                           '/vendor/modernizr.js', 
                           '/scripts/script.js']                
             },
+            require: require,
             getPreparedTitle: function() {
                 if (this.document.title) {
                   return "" + this.document.title + " | " + this.site.title;
@@ -83,37 +100,68 @@
                 }
                                                 
                 return imagePath;
+            },
+            // ToDo: Probably not needed anymore.
+            getPublicationGroups: function() {
+                var pubs = this.getCollection("publications").toJSON();
+                if (!pubs) console.log("pubs is undefined");
+                var pubsByTag = _.groupBy(pubs, function(pub) {
+                    //writeToFile("pub.json", JSON.stringify(pub)); 
+                    if (pub.tag && pub.tag.length > 0) {
+                        return pub.tag[0];
+                    }
+                    else {
+                        return null;
+                    }
+                });
+                                
+                //writeToFile("pubGroups.json", JSON.stringify(pubsByTag)); 
+                
+                return pubsByTag;
             }
         },
         collections: {
+            // All pages, by default, have the "default" layout and are hidden from the menu.
             pages: function () {
                 return this.getCollection("html")
                            .findAllLive()
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "default" });
+                                model.setMetaDefaults({ layout: "default",
+                                                        menuHidden: true });
                             });
             },
-            // Set menuHiddden to true for auto generated documents (paging).                                
+            // All auto generated documents (paging) should be hidden from the menu. The 'paged' plugin
+            // set the menuHidden property to true to all pages.
             auto: function () {
                 return this.getCollection("pages")
                            .findAllLive({ isPagedAuto: { $eq: true } })
                            .on("add", function (model) {
-                                model.setMetaDefaults({ menuHidden: true });
+                                model.setMeta({ menuHidden: true });
                             });
             },            
             news: function () {
                 return this.getCollection("html")
                            .findAllLive({ relativeOutDirPath: "news" }, [{ date: -1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "pr", menuHidden: true });
+                                model.setMetaDefaults({ layout: "pr" });
                             });
             },
+            // This collection contains only publications. By convention these are located in subdirectories 
+            // of the "publications" directory.
             publications: function () {
+                var noIndexHtml = function(model) {
+                    var m = model.toJSON();
+                    var isPub = /^publications[\/\\]./.test(m.relativeOutDirPath);
+                    var isIndexHtml = m.basename === "index" 
+                    return isPub && !isIndexHtml;
+                };
+                
                 return this.getCollection("html")
-                           .findAllLive({ relativeOutDirPath: "publications" }, [{ date: -1 }])                           
+                           .createLiveChildCollection()
+                           .setFilter("no_index_html", noIndexHtml)
+                           .setComparator([{ date: 1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "publication", 
-                                                        menuHidden: true });
+                                model.setMetaDefaults({ layout: "publication" });
                                 var editions = model.getMeta("editions");                                
                                 if (editions) {
                                     var currentEdition = editions[0];
@@ -127,6 +175,11 @@
                                     model.setMeta("date", currentEdition.date);
                                 }                               
                             });
+            },
+            // Publications categories are specified in a index.html file in a "publications" subdirectory. 
+            publicationCategories: function() {
+                return this.getCollection("html")
+                           .findAllLive({ relativeOutPath: /^publications\/.*\/index.html/ }, [{ menuOrder: 1 }]) 
             },
             boards: function () {
                 return this.getCollection("html")

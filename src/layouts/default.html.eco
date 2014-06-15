@@ -33,29 +33,7 @@
     <header class="page-header">
         <h1><%- @site.title %></h1>
         <a href="<%= @site.url %>"><img class="logo" src="/images/logo_light.png"/></a>
-        <div class="menu-container">
-            <% renderMenuItems = (items) => %>
-            <% @trace.menu("Rendering the menu of " + @document.url) %>
-                <% for item in items: %>
-                    <% if item.title: %>
-                        <% @trace.menu("Rendering menu item " + item.title) %>
-                        <li class="pureCssMenui">
-                            <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
-                            <% if item.children: %>
-                            <ul class="pureCssMenum">
-                                <%- renderMenu(item.children) %>
-                            </ul>
-                            <% end %>
-                        </li>
-                        <% @trace.menu("Finished rendering menu item " + item.title) %>
-                    <% end %>
-                <% end %>   
-            <% @trace.menu("Finished rendering menu of " + @document.url) %>
-            <% end %>
-            <ul class="pureCssMenu pureCssMenum">
-                <%= renderMenuItems @generateMenu(@document.url) %>
-            </ul>            
-        </div>
+        <%- @partial("menu") %>
     </header>
     <article class="page-content">        
         <h1 class="title"><%= @document.title %></h1>

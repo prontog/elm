@@ -1,5 +1,6 @@
 ---
 title: Χρονολόγιο
+menuHidden: false
 menuOrder: 3
 ---
 
