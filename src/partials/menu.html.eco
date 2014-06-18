@@ -2,18 +2,20 @@
 layout: null
 ---
 
-<div class="menu-container">
+<div class="horizontal-centering"><div><div>
     <% renderMenu = (items) => %>
     <% @trace.menu("Rendering the menu of " + @document.url) %>
         <% for item in items: %>
             <% if item.title: %>
                 <% @trace.menu("Rendering menu item " + item.title) %>
-                <li class="pureCssMenui">
-                    <a href="<%= item.url %>" class="pureCssMenui"><%= item.title %></a>
-                    <% if item.children: %>
-                    <ul class="pureCssMenum">
-                        <%- renderMenu(item.children) %>
-                    </ul>
+                <li>
+                    <% if item.children and item.children.length: %>
+                        <a href="<%= item.url %>" class="dir"><%= item.title %></a>
+                        <ul>
+                            <%- renderMenu(item.children) %>
+                        </ul>
+                    <% else: %>
+                        <a href="<%= item.url %>"><%= item.title %></a>
                     <% end %>
                 </li>
                 <% @trace.menu("Finished rendering menu item " + item.title) %>
@@ -21,7 +23,7 @@ layout: null
         <% end %>   
     <% @trace.menu("Finished rendering menu of " + @document.url) %>
     <% end %>
-    <ul class="pureCssMenu pureCssMenum">
+    <ul id="nav" class="dropdown dropdown-horizontal">
         <%= renderMenu @generateMenu(@document.url) %>
     </ul>            
-</div>
+</div></div></div>

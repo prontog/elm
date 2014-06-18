@@ -37,8 +37,10 @@
                 keywords: "λευκάδα, λευκαδικά, επιστημονική εταιρεία, επιστημονικό σωματείο, lefkas, history, ιστορία",
                 styles: ['/vendor/normalize.css', 
                          '/vendor/h5bp.css', 
+                         '/styles/menu/dropdown.css',
                          '/styles/style.css',
-                         '/styles/purecssmenu.css'
+                         '/styles/menu/default_advanced.css',
+                         '/styles/menu/horizontal-centering.css',
                          ],
                 scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
                           '/vendor/log.js', 
@@ -72,6 +74,8 @@
                         console.log(msg);
                 }
             },
+            writeToFile: writeToFile,
+            appendToFile: appendToFile,
             imagesRoot: "/images/",
             getImage: function(page) {
                 var imagePath;
@@ -176,17 +180,24 @@
                                 }                               
                             });
             },
-            // Publications categories are specified in a index.html file in a "publications" subdirectory. 
             publicationCategories: function() {
                 return this.getCollection("html")
                            .findAllLive({ relativeOutPath: /^publications\/.*\/index.html/ }, [{ menuOrder: 1 }]) 
             },
             boards: function () {
                 return this.getCollection("html")
-                           .findAllLive({ relativeOutDirPath: "boards" }, [{ from: 1 }])
-                           .on("add", function (model) {                                
+                           .findAllLive({ relativeOutPath: /^boards\/.*\/index.html/ }, [{ from: 1 }])
+                           .on("add", function (model) {                
+                               var period = model.getMeta("period");
+                               var from = model.getMeta("from");
+                               var until = model.getMeta("until");
+                               var menuTitle = period + " (" + from + "-" + until + ")";
+                               var title = "Περίοδος " + menuTitle;
+                               model.setMeta("title", title);
+                               model.setMeta("menuHidden", false );
+                               model.setMeta("menuTitle", menuTitle);
                             });
-            }
+            }            
         },
         environments: {
             development: {
