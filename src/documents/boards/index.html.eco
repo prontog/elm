@@ -4,7 +4,7 @@ menuHidden: false
 menuOrder: 6
 ---
 
-<div class="centered-list">
+<div id="top" class="centered-list">
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        
@@ -15,9 +15,11 @@ menuOrder: 6
 
 <!--Add the periods from the collection-->
 <% for board in @getCollection("boards").toJSON(): %>        
-    <h2 id=<%= "period_" + board.from %>><%=  "Περίοδος Προεδρίας " + board.period %></h2>
-    <div>
-        <%- board.contentRenderedWithoutLayouts %>
+    <div id=<%= "period_" + board.from %> class="board">
+        <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
+        <div>
+            <%- board.contentRenderedWithoutLayouts %>
+        </div>
     </div>
     <br/>
 <% end %>

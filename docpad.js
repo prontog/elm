@@ -14,13 +14,13 @@
     };
     
     var writeToFile = function(fname, text) {        
-        fs.writeFile(fname, text, function (err) {
+        fs.writeFile(fname, text + "\n", function (err) {
           if (err) return console.log(err);
         });
     }
     
     var appendToFile = function(fname, text) {        
-        fs.appendFile(fname, text, function (err) {
+        fs.appendFile(fname, text + "\n", function (err) {
           if (err) return console.log(err);
         });
     }
@@ -166,14 +166,20 @@
                            .setComparator([{ date: 1 }])
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "publication" });
-                                var editions = model.getMeta("editions");                                
+                                var editions = model.getMeta("editions");  
+                               appendToFile("pub.json", model.toJSON().url);
+//                               appendToFile("pub.json", JSON.stringify(editions));
+                               editions = model.toJSON().editions;
+                               //appendToFile("pub.json", JSON.stringify(editions));
                                 if (editions) {
-                                    var currentEdition = editions[0];
-                                    for (var e in editions) {
+                                    var currentEdition = _.first(editions);
+                                    _.each(editions, function(e) {
                                         if (e.number > currentEdition.number) {
                                             currentEdition = e;
                                         }
-                                    }
+                                    });
+                                    
+//                                    appendToFile("pub.json", "CurrentEdition:" + JSON.stringify(currentEdition));
 
                                     model.setMeta("currentEdition", currentEdition);
                                     model.setMeta("date", currentEdition.date);
