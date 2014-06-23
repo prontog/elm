@@ -17,6 +17,6 @@ editions:
       isbn: 978-960-7498-39-9
       price: 40
 tag: [ Μελέτες ]
-extraPubInfo: ISBN \(set\) 978-960-7498-34-8
+extraPubInfo: ISBN (set) 978-960-7498-34-8
 info: 
 ---

@@ -11,6 +11,6 @@ editions:
       isbn: 960-7498-28-3
       price: 60
 tag: [ Πρακτικά Συνεδρίων ]
-extraPubInfo: ISBN \(set\): 960-7498-27-5
+extraPubInfo: ISBN (set): 960-7498-27-5
 info: Ζητήματα πολιτισμικής ιστορίας.
 ---

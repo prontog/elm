@@ -1,0 +1,9 @@
+---
+layout: "default"
+---
+
+<div class="board">
+    <div>
+        <%- @content %>
+    </div>
+</div>

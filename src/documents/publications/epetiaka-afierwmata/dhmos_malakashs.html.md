@@ -1,5 +1,5 @@
 ---
-title: Δήμος Μαλακάσης \(1923-1997\)
+title: Δήμος Μαλακάσης (1923-1997)
 author: 
 contributors: 
 editions: 

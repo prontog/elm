@@ -167,10 +167,6 @@
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "publication" });
                                 var editions = model.getMeta("editions");  
-                               appendToFile("pub.json", model.toJSON().url);
-//                               appendToFile("pub.json", JSON.stringify(editions));
-                               editions = model.toJSON().editions;
-                               //appendToFile("pub.json", JSON.stringify(editions));
                                 if (editions) {
                                     var currentEdition = _.first(editions);
                                     _.each(editions, function(e) {
@@ -178,9 +174,7 @@
                                             currentEdition = e;
                                         }
                                     });
-                                    
-//                                    appendToFile("pub.json", "CurrentEdition:" + JSON.stringify(currentEdition));
-
+                    
                                     model.setMeta("currentEdition", currentEdition);
                                     model.setMeta("date", currentEdition.date);
                                 }                               
@@ -202,6 +196,7 @@
                                model.setMeta("title", title);
                                model.setMeta("menuHidden", false );
                                model.setMeta("menuTitle", menuTitle);
+                               model.setMeta("layout", "board");
                             });
             }            
         },

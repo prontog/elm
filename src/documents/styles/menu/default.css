@@ -48,11 +48,11 @@ ul.dropdown a:active {
 
 ul.dropdown ul {
     margin-left: -6px;
-    width: 170px;
+    width: auto;
     padding-bottom: 9px;
     background: url(/images/menu/dropdown_pane.png) 0 100% no-repeat;
     color: rgb(255, 200, 104);
-    font-size: 11px;
+/*    font-size: 11px;*/
     font-weight: normal;
 }
 

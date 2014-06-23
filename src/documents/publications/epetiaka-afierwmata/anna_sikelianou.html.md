@@ -1,5 +1,5 @@
 ---
-title: Άννα Σικελιανού \(1900-2006\)
+title: Άννα Σικελιανού (1900-2006)
 author: 
 contributors: 
 editions: 

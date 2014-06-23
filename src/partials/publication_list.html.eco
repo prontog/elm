@@ -13,19 +13,24 @@ layout: null
                 <% end %>
             </td>
             <td>
-                <div>Τίτλος: <span class="publication-title"><%- pub.title %></span></div>
-                <% if pub.currentEdition.isbn: %>
-                    <div>ISBN: <%- pub.currentEdition.isbn %></div>
-                <% end %>
+                <div><span class="publication-title"><%- pub.title %></span></div>
                 <% if pub.author: %>
                     <div>Συγγραφέας: <%- pub.author %></div>
                 <% end %>
-                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>                    
-                <div>Σελίδες: <%- pub.currentEdition.pages %></div>
-                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
+                <% if pub.contributors: %>
+                    <div><%- pub.contributors %></div>
+                <% end %>
+                <br/>
+                <br/>
                 <% if pub.info: %>
                     <div>Λοιπές πληρ.: <%- pub.info %></div>
                 <% end %>        
+                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>                    
+                <div>Σελίδες: <%- pub.currentEdition.pages %></div>
+                <% if pub.currentEdition.isbn: %>
+                    <div>ISBN: <%- pub.currentEdition.isbn %></div>
+                <% end %>
+                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
             </td>
         </tr></table>
     </div>

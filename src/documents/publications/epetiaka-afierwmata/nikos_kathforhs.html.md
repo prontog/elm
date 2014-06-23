@@ -1,5 +1,5 @@
 ---
-title: Νίκος Γ. Κατηφόρης \(1903-1967\)
+title: Νίκος Γ. Κατηφόρης (1903-1967)
 author: 
 contributors: 
 editions: 
