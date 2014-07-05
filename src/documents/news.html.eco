@@ -7,7 +7,7 @@ menuOrder: 5
 <ul>
     <% for page in @getCollection("news").toJSON(): %>
         <li>
-            <%= page.newsDate %>
+            <%= page.newsDate + ":    " + page.title %>
             <div>
                 <%= page.newsInfo + " " %><a href="<%= page.url %>">περισσότερα εδώ </a>
             </div>

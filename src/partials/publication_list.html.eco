@@ -3,17 +3,17 @@ layout: null
 ---
 
 <% for pub in @publications: %>
-    <div class="publication">
+    <div class="publication publication-entry">
         <table><tr>
             <td>                
                 <% if @getThumb(pub) == "MISSING": %>
                     <img alt="Χωρίς εξώφυλλο"></img>
                 <% else: %>
-                    <a href="<%= @getImage(pub, 'publications') %>"><img src="<%= @getThumb(pub, 'publications') %>"></img></a>
+                    <a href="<%= pub.url %>"><img src="<%= @getThumb(pub, 'publications') %>"></img></a>
                 <% end %>
             </td>
             <td>
-                <div><span class="publication-title"><%- pub.title %></span></div>
+                <div><a href="<%= pub.url %>" class="publication-title"><%- pub.title %></a></div>
                 <% if pub.author: %>
                     <div>Συγγραφέας: <%- pub.author %></div>
                 <% end %>

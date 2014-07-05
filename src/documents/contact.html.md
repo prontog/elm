@@ -12,7 +12,7 @@ menuOrder: 7
 
 Τηλ. 210-4531712, 6972400110
 
-e-mail: <athmelas@gmail.com>
+e-mail: <elm@lefkadika.gr>
 
 
 ### Διοικητικό Συμβούλιο

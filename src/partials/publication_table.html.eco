@@ -1,0 +1,40 @@
+---
+layout: null
+---
+<br/>
+<div class="publication">
+    <table><tr>
+        <td>                
+            <% if @getThumb(@pub) == "MISSING": %>
+                <img alt="Χωρίς εξώφυλλο"></img>
+            <% else: %>
+                <a href="<%= @getImage(@pub, 'publications') %>">
+                    <img src="<%= @getThumb(@pub, 'publications') %>"></img>
+                </a>
+            <% end %>
+        </td>
+        <td>
+            <div><span class="publication-title"><%- @pub.title %></span></div>
+            <% if @pub.author: %>
+                <div>Συγγραφέας: <%- @pub.author %></div>
+            <% end %>
+            <% if @pub.contributors: %>
+                <div><%- @pub.contributors %></div>
+            <% end %>
+            <br/>
+            <br/>
+            <% if @pub.info: %>
+                <div>Λοιπές πληρ.: <%- @pub.info %></div>
+            <% end %>        
+            <div>Εκδόθηκε: <%- @pub.currentEdition.place + " " + @pub.currentEdition.date %></div>                    
+            <div>Σελίδες: <%- @pub.currentEdition.pages %></div>
+            <% if @pub.currentEdition.isbn: %>
+                <div>ISBN: <%- @pub.currentEdition.isbn %></div>
+            <% end %>
+            <div>Τιμή: <%- @pub.currentEdition.price %> € </div>
+        </td>
+    </tr></table>
+</div>
+<%- @partial("publication_footer") %>
+<br/>
+<%- @pub.contentRenderedWithoutLayouts %>

@@ -1,9 +1,10 @@
 (function() {
     "use strict";
     
-    var _ = require('underscore');
-    var fs = require('fs');
-
+    var _ = require("underscore");
+    var fs = require("fs");
+    var path = require("path");
+    var os = require("os");
     
     var __indexOf = [].indexOf || function(item) {
             for (var i = 0, l = this.length; i < l; i++) { 
@@ -25,7 +26,43 @@
         });
     }
     
-    var docpadConfig = {        
+    var asJSON = function(obj) {
+        return JSON.stringify(obj);
+    }
+    
+    var getObjMembers = function(obj) {
+        var retStr = "Properties---------\n";
+        retStr += _.keys(obj).join("\n");
+        retStr += "\nFunctions---------\n";
+        retStr += _.functions(obj).join("\n");
+        return retStr;
+    }
+    
+    // Creates a RegExp based on the origPath regular expression. On non-Windows machines it 
+    // uses the provided string without modifying it. On Windows it tries to normalize the
+    // path first. If the regular expression contains backslashes the results can vary.
+    var createPathRegExp = function(origPath) {        
+        var normalizedPath = origPath;
+        if (/^Windows/i.test(os.type())) {
+            var normalizedPath = path.normalize(origPath).replace(/\\/g, "\\\\");
+        }
+        
+        return new RegExp(normalizedPath);
+    }
+    
+    var helpers = {
+        getIndexHtmlFrom: function(path, comparator) {            
+            //var re = new RegExp("^" + path + "\/.*\/index.html");
+            var re = createPathRegExp("^" + path + "/.*/index.html");
+            return this.getCollection("html")
+                       .findAllLive({ relativeOutPath: re }, comparator);
+        },
+        getDoc: function(query) {
+            return this.getCollection("html").findOne(query).toJSON();
+        }
+    };
+    
+    var docpadConfig = { 
         templateData: {
             site: {
                 url: "http://www.lefkadika.gr",
@@ -105,7 +142,6 @@
                                                 
                 return imagePath;
             },
-            // ToDo: Probably not needed anymore.
             getPublicationGroups: function() {
                 var pubs = this.getCollection("publications").toJSON();
                 if (!pubs) console.log("pubs is undefined");
@@ -122,8 +158,22 @@
                 //writeToFile("pubGroups.json", JSON.stringify(pubsByTag)); 
                 
                 return pubsByTag;
-            }
-        },
+            },
+            getIndexHtmlFrom: helpers.getIndexHtmlFrom,
+            getDoc: function(query) {
+                var doc;
+                try {
+                    var doc = helpers.getDoc.call(this, query);
+                    //writeToFile("file", getObjMembers(doc));
+                }
+                catch(e) {
+                    console.error("Could not find document with query: " + asJSON(query));
+                }
+                    
+                return doc;
+            },
+            createPathRegExp: createPathRegExp
+        },        
         collections: {
             // All pages, by default, have the "default" layout and are hidden from the menu.
             pages: function () {
@@ -132,6 +182,8 @@
                            .on("add", function (model) {
                                 model.setMetaDefaults({ layout: "default",
                                                         menuHidden: true });
+                               
+                               //appendToFile("docs", asJSON(model));
                             });
             },
             // All auto generated documents (paging) should be hidden from the menu. The 'paged' plugin
@@ -155,7 +207,7 @@
             publications: function () {
                 var noIndexHtml = function(model) {
                     var m = model.toJSON();
-                    var isPub = /^publications[\/\\]./.test(m.relativeOutDirPath);
+                    var isPub = createPathRegExp("^publications/.").test(m.relativeOutDirPath);
                     var isIndexHtml = m.basename === "index" 
                     return isPub && !isIndexHtml;
                 };
@@ -165,7 +217,7 @@
                            .setFilter("no_index_html", noIndexHtml)
                            .setComparator([{ date: 1 }])
                            .on("add", function (model) {
-                                model.setMetaDefaults({ layout: "publication" });
+                                model.setMeta("layout", "publication");
                                 var editions = model.getMeta("editions");  
                                 if (editions) {
                                     var currentEdition = _.first(editions);
@@ -180,23 +232,19 @@
                                 }                               
                             });
             },
-            publicationCategories: function() {
-                return this.getCollection("html")
-                           .findAllLive({ relativeOutPath: /^publications\/.*\/index.html/ }, [{ menuOrder: 1 }]) 
+            publicationCategories: function() {                
+                return helpers.getIndexHtmlFrom.call(this, "publications", [{ menuOrder: 1 }]); 
             },
             boards: function () {
-                return this.getCollection("html")
-                           .findAllLive({ relativeOutPath: /^boards\/.*\/index.html/ }, [{ from: 1 }])
+                return helpers.getIndexHtmlFrom.call(this, "boards", [{ from: 1 }])
                            .on("add", function (model) {                
                                var period = model.getMeta("period");
                                var from = model.getMeta("from");
-                               var until = model.getMeta("until");
-                               var menuTitle = period + " (" + from + "-" + until + ")";
-                               var title = "Περίοδος " + menuTitle;
+                               var until = model.getMeta("until");                               
+                               var title = "Περίοδος " + period + " (" + from + "-" + until + ")";
                                model.setMeta("title", title);
                                model.setMeta("menuHidden", false );
-                               model.setMeta("menuTitle", menuTitle);
-                               model.setMeta("layout", "board");
+                               model.setMeta("layout", "board");                                                              
                             });
             }            
         },

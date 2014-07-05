@@ -21,27 +21,27 @@
 ul.dropdown li {
     padding: 7px 12px;
     background-color: rgb(255, 200, 104);
-    color: #fff;
+    color: #000;
 }
 
 ul.dropdown li.hover,
 	ul.dropdown li:hover {
-    background-color: rgb(251, 250, 218);
+    background-color: rgb(255, 200, 104);
 }
 
 ul.dropdown a:link,
 	ul.dropdown a:visited {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 
 ul.dropdown a:hover {
-    color: rgb(255, 200, 104);
+/*    color: rgb(255, 200, 104);*/
     text-decoration: underline;
 }
 
 ul.dropdown a:active {
-    color: rgb(255, 200, 104);
+/*    color: rgb(255, 200, 104);*/
 }
 
 	/* -- level mark -- */
@@ -51,14 +51,14 @@ ul.dropdown ul {
     width: auto;
     padding-bottom: 9px;
     background: url(/images/menu/dropdown_pane.png) 0 100% no-repeat;
-    color: rgb(255, 200, 104);
+    color: #000;
 /*    font-size: 11px;*/
     font-weight: normal;
 }
 
 ul.dropdown ul li {
     background-color: transparent;
-    color: rgb(255, 200, 104);
+    color: #000;
 }
 
 ul.dropdown ul li.hover,
@@ -73,23 +73,25 @@ ul.dropdown ul li.empty {
 
 ul.dropdown ul a:link,
 		ul.dropdown ul a:visited {
-    color: rgb(255, 200, 104);
+    color: #000;
 }
 
 ul.dropdown ul a:hover {
-    color: rgb(255, 200, 104);
+    color: #000;
     text-decoration: none;
 }
 
 ul.dropdown ul a:active {
-    color: rgb(255, 200, 104);
+    color: #000;
 }
 
 		/* -- level mark -- */
 
+/*
 ul.dropdown ul ul {
     display: none;
 }
+*/
 
 
 /* -- Supporting class `dir` -- */
