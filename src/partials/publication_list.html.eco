@@ -9,11 +9,13 @@ layout: null
                 <% if @getThumb(pub) == "MISSING": %>
                     <img alt="Χωρίς εξώφυλλο"></img>
                 <% else: %>
-                    <a href="<%= pub.url %>"><img src="<%= @getThumb(pub, 'publications') %>"></img></a>
+                    <a href=<%= pub.url %> >
+                        <img src=<%= @getThumb(pub, 'publications') %> alt=<%= "Εξώφυλλο της έκδοσης:" + pub.title %> ></img>
+                    </a>
                 <% end %>
             </td>
             <td>
-                <div><a href="<%= pub.url %>" class="publication-title"><%- pub.title %></a></div>
+                <div><a href=<%= pub.url %> class="publication-title"><%- pub.title %></a></div>
                 <% if pub.author: %>
                     <div>Συγγραφέας: <%- pub.author %></div>
                 <% end %>

@@ -7,8 +7,14 @@ To replace specific patterns from all markdown (docpad) files:
     find -type f -regex '.*\.md[\.]?.*' -exec sed -i .bak 's/PATTERN/REPLACEMENT/' {} \;
 ** Note: The original files are renamed with the .bak extension. **
 
-The To remove the .bak files:
+Then To remove the .bak files:
     find -type f -name '*.bak' -delete
+
+To find pages with the same title: 
+    grep -rf <(grep -rh 'title:' | sort | uniq -d)
+
+To convert all PNG images to JPEG:
+    find -type f -name '*.png' -exec bash -c 'convert $1 ${1/.png/.jpg}' _ {} \;
 
 ### Scripts
 

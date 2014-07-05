@@ -117,10 +117,10 @@
             getImage: function(page) {
                 var imagePath;
                 if (!page) {
-                    imagePath = this.imagesRoot + "not_available.png";
+                    imagePath = this.imagesRoot + "not_available.jpg";
                 }
                 else if (!page.image) {
-                    imagePath = this.imagesRoot + page.relativeBase + ".png";
+                    imagePath = this.imagesRoot + page.relativeBase + ".jpg";
                 }
                 else {
                    imagePath = page.image;
@@ -131,10 +131,10 @@
             getThumb: function(page) {
                 var imagePath;
                 if (!page) {
-                    imagePath = this.imagesRoot + "not_available.png";
+                    imagePath = this.imagesRoot + "not_available.jpg";
                 }
                 else if (!page.thumbnail) {
-                    imagePath = this.imagesRoot + page.relativeBase + "-th.png";
+                    imagePath = this.imagesRoot + page.relativeBase + "-th.jpg";
                 }
                 else {
                     imagePath = page.thumbnail;
