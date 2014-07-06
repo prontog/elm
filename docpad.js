@@ -236,7 +236,7 @@
                 return helpers.getIndexHtmlFrom.call(this, "publications", [{ menuOrder: 1 }]); 
             },
             boards: function () {
-                return helpers.getIndexHtmlFrom.call(this, "boards", [{ from: 1 }])
+                return helpers.getIndexHtmlFrom.call(this, "xroniko/boards", [{ from: 1 }])
                            .on("add", function (model) {                
                                var period = model.getMeta("period");
                                var from = model.getMeta("from");

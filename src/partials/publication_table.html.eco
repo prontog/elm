@@ -25,13 +25,24 @@ layout: null
             <br/>
             <% if @pub.info: %>
                 <div>Λοιπές πληρ.: <%- @pub.info %></div>
-            <% end %>        
-            <div>Εκδόθηκε: <%- @pub.currentEdition.place + " " + @pub.currentEdition.date %></div>                    
-            <div>Σελίδες: <%- @pub.currentEdition.pages %></div>
-            <% if @pub.currentEdition.isbn: %>
-                <div>ISBN: <%- @pub.currentEdition.isbn %></div>
+            <% end %> 
+            <% for edition in @pub.editions: %> 
+                <div>Έκδοση: <%- edition.number + "η" %></div>
+                <div>Εκδόθηκε: <%- edition.place + " " + edition.date %></div>                    
+                <% if edition.pages: %>
+                    <div>Σελίδες: <%- edition.pages %></div>
+                <% end %>
+                <% if edition.info: %>
+                    <div>Πληρ.: <%- edition.info %></div>
+                <% end %>
+                <% if edition.isbn: %>
+                    <div>ISBN: <%- edition.isbn %></div>
+                <% end %>
+                <% if edition.price: %>
+                    <div>Τιμή: <%- edition.price %> € </div>
+                <% end %>
+                <br/>
             <% end %>
-            <div>Τιμή: <%- @pub.currentEdition.price %> € </div>
         </td>
     </tr></table>
 </div>
