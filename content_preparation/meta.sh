@@ -16,7 +16,8 @@ Commands:
   
 Patterns:
 
-  A basic regular expression (BRE).
+  A basic regular expression (BRE) without the escaping.
+  
 EOF
     exit 1
 }
@@ -52,10 +53,6 @@ case $CMD in
 esac
 
 SED_SCRIPT="/\-\-\-/,/\-\-\-/{ ${PATTERN} }"
-SED_CMD="sed $SED_OPT '${SED_SCRIPT}'"
-
-echo $SED_SCRIPT
-echo $SED_CMD
 
 shift 1
 
@@ -64,17 +61,13 @@ if [ "$*" == "" ]; then
     FILE_LIST="."
 fi
 
-#echo $FILE_LIST
-
-set -o posix
-
-echo <(echo $SED_CMD)
+#set -o posix
 
 for FILE in $FILE_LIST
 do
     if [ -f $FILE ]; then
-        $SED_CMD $FILE
+        sed $SED_OPT "$SED_SCRIPT" $FILE
     elif [ -d $FILE ]; then
-        find $FILE -type f -print0 | xargs --null $SED_CMD
+        find $FILE -type f -exec sed $SED_OPT "$SED_SCRIPT" {} \;
     fi    
 done
