@@ -7,7 +7,6 @@ menuOrder: 2
 <div id="top" class="centered-list">
 <!--    <h3>Περίοδοι Προεδρίας</h3>-->
     <% for v in @getIndexHtmlFrom("xroniko/vraveia", [ menuOrder: 1 ]).toJSON(): %>        
-        <a href=<%= v.url %>><%= v.title %></a>            
-        <br/>
+        <a href=<%= v.url %>><%= v.title %></a>
     <% end %>
 </div>

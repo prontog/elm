@@ -219,7 +219,7 @@
                 return this.getCollection("html")
                            .createLiveChildCollection()
                            .setFilter("no_index_html", noIndexHtml)
-                           .setComparator([{ date: 1 }])
+                           .setComparator([{ date: 1 }, { title: 1 }])
                            .on("add", function (model) {
                                 model.setMeta("layout", "publication");
                                 var editions = model.getMeta("editions");  

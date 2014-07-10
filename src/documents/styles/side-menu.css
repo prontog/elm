@@ -88,6 +88,10 @@ The content `<div>` is where all your content goes.
     text-align: center;
     border-top: 1px solid #eee;
 }
+    .footer p {
+        font-size: 14px
+    }
+    
 
 .content-subhead {
     margin: 50px 0 20px 0;

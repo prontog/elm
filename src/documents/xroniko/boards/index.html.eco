@@ -10,8 +10,7 @@ menuOrder: 21
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        
-        <a href=<%= "#" + "period_" + board.from %> ><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>            
-        <br/>
+        <a href=<%= "#" + "period_" + board.from %> ><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>        
     <% end %>
 </div>
 
@@ -19,7 +18,7 @@ menuOrder: 21
 
 <!--Add the periods from the collection-->
 <% for board in @getCollection("boards").toJSON(): %>        
-    <div id=<%= "period_" + board.from %> class="board">
+    <div id=<%= "period_" + board.from %> class="board centered-list">
         <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
         <div>
             <%- board.contentRenderedWithoutLayouts %>

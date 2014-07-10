@@ -49,7 +49,7 @@
                 <%- @content %>
             </div>
             <div class="footer">      
-                <p class="small-text">Ο κώδικας του ιστότοπου βρίσκεται στο <a href="https://github.com/prontog/elm">GitHub</a></p>
+                <p>ΕΛΜ 2014<br/><a href="/about.html">Πληροφορίες για τον ιστότοπο</a></p>
             </div>
         </div>
     </div>    
