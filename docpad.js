@@ -72,17 +72,13 @@
                 description: "H Εταιρεία Λευκαδικών Μελετών είναι το μοναδικό επιστημονικό σωματείο της Λευκάδας",
                 // ToDo:
                 keywords: "λευκάδα, λευκαδικά, επιστημονική εταιρεία, επιστημονικό σωματείο, lefkas, history, ιστορία",
-                styles: ['/vendor/normalize.css', 
-                         '/vendor/h5bp.css', 
-                         '/styles/menu/dropdown.css',
-                         '/styles/style.css',
-                         '/styles/menu/default_advanced.css',
-                         '/styles/menu/horizontal-centering.css',
+                styles: ['http://yui.yahooapis.com/pure/0.5.0/pure-min.css',
+                         '/styles/style.css'                         
                          ],
-                scripts: ["<!-- jQuery -->\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<script>window.jQuery || document.write('<script src=\"/vendor/jquery.js\"><\\/script>')</script>", 
-                          '/vendor/log.js', 
-                          '/vendor/modernizr.js', 
-                          '/scripts/script.js']                
+                scripts: ['/vendor/log.js', 
+                          '/vendor/modernizr.js',
+                          '/vendor/ui.js'
+                         ]                
             },
             require: require,
             getPreparedTitle: function() {
@@ -172,7 +168,15 @@
                     
                 return doc;
             },
-            createPathRegExp: createPathRegExp
+            createPathRegExp: createPathRegExp,
+            getLogo: function() {
+                if (this.getDocument().toJSON().relativeOutPath !== "index.html") {
+                    return "/images/logo_light_small.png";
+                }
+                else {
+                    return "/images/logo_light.png";
+                }
+            }
         },        
         collections: {
             // All pages, by default, have the "default" layout and are hidden from the menu.
@@ -246,7 +250,10 @@
                                model.setMeta("menuHidden", false );
                                model.setMeta("layout", "board");                                                              
                             });
-            }            
+            },
+            chronicle: function() {                
+                return helpers.getIndexHtmlFrom.call(this, "xroniko", [{ menuOrder: 1 }]); 
+            }
         },
         environments: {
             development: {

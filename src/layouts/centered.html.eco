@@ -2,7 +2,7 @@
 layout: "default"
 ---
 
-<div class="board centered-list">
+<div class="centered-list">
     <div>
         <%- @content %>
     </div>

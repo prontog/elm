@@ -24,24 +24,35 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <!-- HTML5shim  for HTML5 tag support in IE 6-8 -->
-    <!--[if lt IE 9]>
-    <script src="/vendor/html5shiv-printshiv.min.js"></script>
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/styles/side-menu-old-ie.css">
     <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/styles/side-menu.css">
+    <!--<![endif]-->
 </head>
 <body>
-    <header class="page-header">
-        <h1><%- @site.title %></h1>
-        <a href="<%= @site.url %>"><img class="logo" src="/images/logo_light.png"/></a>
-        <%- @partial("menu") %>
-    </header>
-    <article class="page-content">        
-        <h1 class="title"><%= @document.title %></h1>
-        <%- @content %>
-    </article>
-    <footer class="page-footer">        
-        <p class="small-text">Ο κώδικας του ιστότοπου βρίσκεται στο <a href="https://github.com/prontog/elm">GitHub</a></p>
-    </footer>
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+        <%- @partial("menu") %>                
+        <div id="main">
+            <div class="header">            
+                <h1><%- @site.title %></h1>
+                <a href="<%= @site.url %>"><img class="pure-img logo" src="<%- @getLogo() %>"/></a>                
+            </div>
+            <div class="content">                       
+                <h2 class="title"><%= @document.title %></h1>
+                <%- @content %>
+            </div>
+            <div class="footer">      
+                <p class="small-text">Ο κώδικας του ιστότοπου βρίσκεται στο <a href="https://github.com/prontog/elm">GitHub</a></p>
+            </div>
+        </div>
+    </div>    
     <!-- DocPad Scripts + Our Own -->
 	<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
 </body>

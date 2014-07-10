@@ -4,4 +4,30 @@ menuHidden: false
 menuOrder: 2
 ---
 
-### Ύπο κατασκευή
+Το χρονικό της εταιρείας χωρίζεται στις παρακάτω ενότητες.
+
+<div>
+    <% renderMenu = (items) => %>
+    <% @trace.menu("Rendering the menu of " + @document.url) %>
+        <% for item in items: %>
+            <% if item.title: %>
+                <% @trace.menu("Rendering menu item " + item.title) %>
+                <li>
+                    <% if item.children and item.children.length: %>
+                        <a href="<%= item.url %>"><%= item.title %></a>
+                        <ul>
+                            <%- renderMenu(item.children) %>
+                        </ul>
+                    <% else: %>
+                        <a href="<%= item.url %>"><%= item.title %></a>
+                    <% end %>
+                </li>
+                <% @trace.menu("Finished rendering menu item " + item.title) %>
+            <% end %>
+        <% end %>
+    <% @trace.menu("Finished rendering menu of " + @document.url) %>
+    <% end %>        
+    <ul>
+        <%= renderMenu @generateMenu(@document.url,"chronicle") %>
+    </ul>
+</div>

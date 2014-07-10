@@ -10,7 +10,7 @@ layout: null
                     <img alt="Χωρίς εξώφυλλο"></img>
                 <% else: %>
                     <a href=<%= pub.url %> >
-                        <img src=<%= @getThumb(pub, 'publications') %> alt=<%= "Εξώφυλλο της έκδοσης:" + pub.title %> ></img>
+                        <img class="pure-img" src=<%= @getThumb(pub, 'publications') %> alt=<%= "Εξώφυλλο της έκδοσης:" + pub.title %> ></img>
                     </a>
                 <% end %>
             </td>

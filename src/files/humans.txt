@@ -3,13 +3,15 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Development: Panos Rontogiannis
+    Coordinator: Triantafillos Sklavenitis
 
 # THANKS
 
-    <name>
+    Dimitris Fatouros
+    Docpad
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
+    HTML5, CSS3, YUI Pure Css
     Normalize.css, jQuery, Modernizr

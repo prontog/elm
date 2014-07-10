@@ -1,18 +1,8 @@
 @charset "UTF-8";
-/*
-    Footer style from: http://www.lwis.net/journal/2008/02/08/pure-css-sticky-footer/
-    Menu style from: http://www.lwis.net/journal/2008/04/08/pure-css-drop-down-menu/
-                     http://www.lwis.net/free-css-drop-down-menu/
-*/
-
-html
-body 
-    height: 100%;
 
 body 
     background-color: rgb(251, 250, 218)
     font-family: Times, "Times New Roman", Georgia, serif    
-    max-width: 900px
     margin: 0 auto
 
 /* Header */
@@ -22,14 +12,6 @@ body
     margin-right: auto
     margin-top: 0px
     margin-bottom: 15px
-
-/*
-.menu-container
-    position: center;
-    display: block
-    margin-left: auto
-    margin-right: auto
-*/
 
 /* Content */
 
@@ -62,9 +44,10 @@ h1
     text-align: center
     margin-bottom: auto
     
-h1.title
-    padding-top: auto
-    margin-top: 2em
+h2.title
+    color: rgb(255, 25, 104)
+    //padding-top: auto
+    //margin-top: 2em
     //margin-bottom: 1em
 
 h2
@@ -73,10 +56,10 @@ h2
 news
     color: blue
 
-p
-    text-indent: 3em
-
 /* Publication, Board of Directors */
+
+.board table
+    margin: 0px auto;
 
 /*.board tr*/
 tr
@@ -114,9 +97,15 @@ div.pagination ul li
 
 /* A centered list. Usually of links. */
 .centered-list
-    text-align: center
     padding: auto
     margin-bottom: 3em
 
+.centered-list *
+    text-align: center
+    text-indent: 0em
+
 .centered-list h3
     margin-bottom: 0px
+
+.search
+    line-height: 1em

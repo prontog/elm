@@ -2,28 +2,30 @@
 layout: null
 ---
 
-<div class="horizontal-centering"><div><div>
-    <% renderMenu = (items) => %>
-    <% @trace.menu("Rendering the menu of " + @document.url) %>
-        <% for item in items: %>
-            <% if item.title: %>
-                <% @trace.menu("Rendering menu item " + item.title) %>
-                <li>
-                    <% if item.children and item.children.length: %>
-                        <a href="<%= item.url %>" class="dir"><%= item.title %></a>
-                        <ul>
-                            <%- renderMenu(item.children) %>
-                        </ul>
-                    <% else: %>
-                        <a href="<%= item.url %>"><%= item.title %></a>
-                    <% end %>
-                </li>
-                <% @trace.menu("Finished rendering menu item " + item.title) %>
+<div id="menu">
+    <div class="pure-menu pure-menu-open">
+        <% renderMenu = (items) => %>
+        <% @trace.menu("Rendering the menu of " + @document.url) %>
+            <% for item in items: %>
+                <% if item.title: %>
+                    <% @trace.menu("Rendering menu item " + item.title) %>
+                    <li>
+                        <% if item.children and item.children.length: %>
+                            <a href="<%= item.url %>"><%= item.title %></a>
+                            <ul>
+                                <%- #renderMenu(item.children) %>
+                            </ul>
+                        <% else: %>
+                            <a href="<%= item.url %>"><%= item.title %></a>
+                        <% end %>
+                    </li>
+                    <% @trace.menu("Finished rendering menu item " + item.title) %>
+                <% end %>
             <% end %>
-        <% end %>   
-    <% @trace.menu("Finished rendering menu of " + @document.url) %>
-    <% end %>
-    <ul id="nav" class="dropdown dropdown-horizontal">
-        <%= renderMenu @generateMenu(@document.url) %>
-    </ul>            
-</div></div></div>
+        <% @trace.menu("Finished rendering menu of " + @document.url) %>
+        <% end %>        
+        <ul>
+            <%= renderMenu @generateMenu(@document.url) %>
+        </ul>
+    </div>
+</div>
