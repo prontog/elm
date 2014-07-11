@@ -1,16 +1,18 @@
 ---
-title: Νέα
+title: Τα νέα της Εταιρείας
+menuTitle: Νέα
 menuHidden: false
 menuOrder: 5
 ---
 
-<ul>
+<div>
     <% for page in @getCollection("news").toJSON(): %>
-        <li>
-            <%= page.newsDate + ":    " + page.title %>
-            <div>
-                <%= page.newsInfo + " " %><a href="<%= page.url %>">περισσότερα εδώ </a>
+        <div>
+            <h3 class="news-title"><%= page.title %></h3>
+            <div class="news-date"><%= page.newsDate %></div>
+            <div class="news-info">
+                <%= page.newsInfo + " " %><a href="<%= page.url %>">(περισσότερα εδώ)</a>
             </div>
-        </li>
+        </div>
     <% end %>
-</ul>
+</div>
