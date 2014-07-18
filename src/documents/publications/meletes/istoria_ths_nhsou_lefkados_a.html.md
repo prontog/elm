@@ -5,7 +5,7 @@ editions:
     - number: 1
       date: 1980
       place: Αθήνα
-      pages: 
+      pages: "στ΄ + 5-687"
       info: 
       isbn: 
       price:

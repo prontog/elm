@@ -2,7 +2,6 @@
 title: Κληροδότημα Παναγιώτη και Ελένης Σάντα
 menuTitle: Παναγιώτη και Ελένης Σάντα
 menuHidden: false
-menuOrder: 3
 ---
 
 ## 2005

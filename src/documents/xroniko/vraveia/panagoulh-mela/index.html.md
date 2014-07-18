@@ -4,7 +4,6 @@ title: >
     Βραβείο Αλέκου Παναγούλη
 menuTitle: Αλέκου Παναγούλη
 menuHidden: false
-menuOrder: 4
 ---
 
 ## 2012

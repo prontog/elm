@@ -54,8 +54,14 @@
         getIndexHtmlFrom: function(path, comparator) {            
             //var re = new RegExp("^" + path + "\/.*\/index.html");
             var re = createPathRegExp("^" + path + "/.*/index.html");
-            return this.getCollection("html")
-                       .findAllLive({ relativeOutPath: re }, comparator);
+            if (comparator) {
+                return this.getCollection("html")
+                            .findAllLive({ relativeOutPath: re }, comparator);
+            }
+            else {
+                return this.getCollection("html")
+                            .findAllLive({ relativeOutPath: re });
+            }
         },
         getDoc: function(query) {
             return this.getCollection("html").findOne(query).toJSON();
@@ -83,7 +89,7 @@
             require: require,
             getPreparedTitle: function() {
                 if (this.document.title) {
-                  return "" + this.document.title + " | " + this.site.title;
+                  return this.document.title;
                 } else {
                   return this.site.title;
                 }
@@ -241,18 +247,33 @@
             },
             boards: function () {
                 return helpers.getIndexHtmlFrom.call(this, "xroniko/boards", [{ from: 1 }])
-                           .on("add", function (model) {                
-                               var period = model.getMeta("period");
-                               var from = model.getMeta("from");
-                               var until = model.getMeta("until");                               
-                               var title = "Περίοδος " + period + " (" + from + "-" + until + ")";
-                               model.setMeta("title", title);
-                               model.setMeta("menuHidden", false );
-                               model.setMeta("layout", "board");                                                              
+                           .on("add", function (model) {
+                                var period = model.getMeta("period");
+                                var from = model.getMeta("from");
+                                var until = model.getMeta("until");                             
+                                var title = "Περίοδος " + period + " (" + from + "-" + until + ")";
+                                model.setMeta("title", title);
+                                model.setMeta("menuHidden", false );
+                                model.setMeta("layout", "board");                        
                             });
             },
-            chronicle: function() {                
-                return helpers.getIndexHtmlFrom.call(this, "xroniko", [{ menuOrder: 1 }]); 
+            chronicle: function() {             
+                return helpers.getIndexHtmlFrom.call(this, "xroniko")
+                            .on("add", function (model) {
+                                // If there is not menuTitle, add one based
+                                // on the title.
+                                var menuTitle = model.getMeta("menuTitle");
+                                if (!menuTitle) {
+                                    model.setMeta("menuTitle", model.getMeta("title"));
+                                }
+                                
+                                this.sortBy("menuTitle")
+                                    .forEach(function(element, index) {
+                                    // Added the menu order now that the collection is sorted on
+                                    // menuTitle. Index is zero based.
+                                    element.setMeta("menuOrder", index + 1);
+                                });
+                            });                                                            
             }
         },
         environments: {
@@ -275,7 +296,14 @@
             demo: {
                 templateData: {
                     site: {
-                        url: "http://ronto.net/"
+                        url: "http://www.ronto.net"
+                    }
+                }                
+            },
+            production: {
+                templateData: {
+                    site: {
+                        url: "http://www.lefkadika.gr"
                     }
                 }                
             }

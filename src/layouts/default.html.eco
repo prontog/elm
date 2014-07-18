@@ -17,10 +17,7 @@
 	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
 	<!-- DocPad Meta -->
-	<%- @getBlock('meta').toHTML() %>
-
-	<!-- DocPad Styles + Our Own -->
-	<%- @getBlock('styles').add(@site.styles).toHTML() %>
+	<%- @getBlock('meta').toHTML() %>	
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
@@ -30,6 +27,10 @@
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="/styles/side-menu.css">
     <!--<![endif]-->
+    
+    <!-- DocPad Styles + Our Own -->
+	<%- @getBlock('styles').add(@site.styles).toHTML() %>
+    
 </head>
 <body>
     <div id="layout">

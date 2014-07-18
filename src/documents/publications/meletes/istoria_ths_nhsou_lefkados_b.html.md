@@ -5,7 +5,7 @@ editions:
     - number: 1
       date: 1982
       place: Αθήνα
-      pages: 
+      pages: 923
       info: 
       isbn: 
       price:

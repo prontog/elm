@@ -32,7 +32,9 @@ layout: null
                 <% if pub.currentEdition.isbn: %>
                     <div>ISBN: <%- pub.currentEdition.isbn %></div>
                 <% end %>
-                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
+                <% if pub.currentEdition.price: %>
+                    <div>Τιμή: <%- pub.currentEdition.price %> € </div>
+                <% end %>
             </td>
         </tr></table>
     </div>

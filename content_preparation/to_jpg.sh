@@ -14,7 +14,7 @@ RESIZE=$1
 SOURCE=$2
 TARGET=$3
 
-TARGET=$(dirname "$TARGET")/$(basename "$TARGET" .tif).png
+TARGET=$(dirname "$TARGET")/$(basename "$TARGET" .tif).jpg
 
 #echo resize: $RESIZE
 echo source: $SOURCE

@@ -2,7 +2,6 @@
 title: Κοινωνικές εκδηλώσεις της Εταιρείας
 menuTitle: Κοινωνικές εκδηλώσεις
 menuHidden: false
-menuOrder: 10
 ---
 
 ## 1971-1984

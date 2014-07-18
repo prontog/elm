@@ -2,7 +2,6 @@
 title: Επετειακά – Αφιερώματα
 menuTitle: Επετειακά – Αφιερώματα
 menuHidden: false
-menuOrder: 6
 ---
 
 ## 1984

@@ -2,7 +2,6 @@
 title: Διαλέξεις ποικίλου περιεχομένου
 menuTitle: Διαλέξεις
 menuHidden: false
-menuOrder: 1
 ---
 
 ## 1976

@@ -1,7 +1,6 @@
 ---
 title: Παρουσίαση βιβλίων
 menuHidden: false
-menuOrder: 13
 ---
 
 ## 1989

@@ -1,7 +1,6 @@
 ---
 title: Ψηφίσματα 
 menuHidden: false
-menuOrder: 19
 ---
 
 ## 1974
