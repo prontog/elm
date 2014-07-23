@@ -19,15 +19,21 @@ h1
     color: rgb(255, 25, 104)
     text-align: center
     margin-bottom: auto
+    font-size: 1.5em
     
 h2.title
     color: rgb(255, 25, 104)
+    font-size: 1.25em
     //padding-top: auto
     //margin-top: 2em
     //margin-bottom: 1em
 
 h2
     text-align: center
+    font-size: 1.17em
+
+h3    
+    font-size: 1em
 
 .news-title
     padding-top: 0.5em
@@ -54,7 +60,9 @@ tr
 .publication-entry, .board
     border-color: #AAAAAA
     border-width: 1px
-    border-style: solid
+    //border-style: solid
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     padding: 1em 1em 1em 1em
     margin: auto
 
@@ -68,25 +76,12 @@ tr
 .publication-title
     font-style: italic
 
-/* Pagination */
-
-div.pagination ul
-    list-style: none    
-    display: block
-    border-style: none
-    margin: auto
-    
-div.pagination ul li
-    float: left    
-    display: block
-    margin: 2px 0px 0px 2px
-
 /* A centered list. Usually of links. */
 .centered-list
     padding: auto
-    margin-bottom: 2em
+    margin-bottom: 1em
 
-.centered-list *
+.centered-list p, .centered-list *
     text-align: center
     text-indent: 0em
 
@@ -101,6 +96,8 @@ div.pagination ul li
 .search
     line-height: 1em
 
+ul
+    margin 0;
 /*
 sup {
     font-size: 50%; 
