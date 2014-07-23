@@ -85,5 +85,4 @@ FILENAME=elm.tar.gz
 # Compress everything into a zipped archive.
 tar -czf $FILENAME *
 
-curl --ftp-create-dirs -T $FILENAME -u $FTP_USER:$FTP_PASSWORD $FTP_URL
- 
+curl --ftp-create-dirs -T $FILENAME -u $FTP_USER:$FTP_PASSWORD $FTP_URL 
