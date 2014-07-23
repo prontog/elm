@@ -8,7 +8,7 @@ editions:
       info: 34 σ. πίνακες
       isbn: 
       price: 12
-tag: [ Επετηρίδες ]
+tag: [ Επετηρίς ]
 info: 
 ---
 

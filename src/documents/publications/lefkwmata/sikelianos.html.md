@@ -6,7 +6,7 @@ editions:
     - number: 1
       date: 1971
       place: Αθήνα
-      pages: 270
+      pages: 4ο, 270
       info: δεμένο
       isbn: 
       price: 

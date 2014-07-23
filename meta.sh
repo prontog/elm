@@ -5,8 +5,16 @@ SCRIPT_NAME=$(basename $0)
 # Function to output usage information.
 usage() {
     cat << EOF
-Usage: $SCRIPT_NAME [-h|--help] COMMAND [PATTERN]... FILE...
+Usage: $SCRIPT_NAME [OPTIONS] COMMAND [PATTERN]... FILE...
 Find or edit single line docpad metadata (YAML).
+
+Options:
+
+  -a, --all
+        aply to the whole file and not just the meta.
+        
+  -h, --help
+        display this help and exit
 
 Commands:
 
@@ -28,6 +36,19 @@ error() {
     exit 1
 }
 
+# Read option.
+OPT=$1
+
+case $OPT in
+    --all|-a) APPLY="all"
+              shift 1
+        ;;
+    --help|-h) usage        
+        ;;
+    -*) error "$OPT is not a valid option"
+        ;;
+esac
+
 # Validate arguments.
 # If no parameter is specified
 if [ $# == 0 ]; then
@@ -45,14 +66,16 @@ case $CMD in
     edit)   SED_OPT='-i.bak'
             if [ "$1" == "" ]; then error "Missing pattern"; fi
             PATTERN=$1
-        ;;
-    --help|-he) usage 
-        ;;
+        ;;    
     *)  error "$CMD is not a valid command"
         ;;
 esac
 
-SED_SCRIPT="/\-\-\-/,/\-\-\-/{ ${PATTERN} }"
+if [ "$APPLY" == "all" ]; then
+    SED_SCRIPT="$PATTERN"
+else
+    SED_SCRIPT="/^\-\-\-/,/^\-\-\-/{ ${PATTERN} }"
+fi
 
 shift 1
 
@@ -68,6 +91,6 @@ do
     if [ -f $FILE ]; then
         sed $SED_OPT "$SED_SCRIPT" $FILE
     elif [ -d $FILE ]; then
-        find $FILE -type f -exec sed $SED_OPT "$SED_SCRIPT" {} \;
+        find $FILE -type f -name '*.html*' -exec sed $SED_OPT "$SED_SCRIPT" {} \;
     fi    
 done

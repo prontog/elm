@@ -8,7 +8,7 @@ editions:
       info: 
       isbn: 
       price: 30
-tag: [ Επετηρίδες ]
+tag: [ Επετηρίς ]
 info: 
 ---
 

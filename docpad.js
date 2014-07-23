@@ -324,6 +324,9 @@
                         return next();
                     }
                 });
+            },
+            render: function(opts) {
+                //console.log("Custom render of: " + opts.file.toJSON().fullPath);
             }
         },
         plugins: {

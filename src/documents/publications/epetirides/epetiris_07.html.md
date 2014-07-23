@@ -8,7 +8,7 @@ editions:
       info: 5 Χάρτες
       isbn: 
       price: 25
-tag: [ Επετηρίδες ]
+tag: [ Επετηρίς ]
 info: 
 ---
 

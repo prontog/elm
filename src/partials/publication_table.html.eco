@@ -25,7 +25,10 @@ layout: null
             <br/>
             <% if @pub.info: %>
                 <div>Λοιπές πληρ.: <%- @pub.info %></div>
-            <% end %> 
+            <% end %>
+            <% if @pub.tag and @pub.tag.length > 0: %>
+                <div><%- @pub.tag[0] %></div>
+            <% end %>
             <% for edition in @pub.editions: %> 
                 <div>Έκδοση: <%- edition.number + "η" %></div>
                 <div>Εκδόθηκε: <%- edition.place + " " + edition.date %></div>                    
