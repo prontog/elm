@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-    - "0.10"
+- '0.10'
 script:
-    - docpad --env demo generate
+- docpad --env demo generate
+env:
+  global:
+    secure: jeYx5GKv/BD63QPrKW8sbaj6f1L/TTq/jl9MdfToDa1AQZ2XLrJv2Mw8HbySW1kuUEkzeXD+H/pwA4PBsgbJC7c+TwS3wiX4NiQxbcXwtjaP6o+JabqMBIp6IIHDOad5NP3lz9kW25VgnB5VDr39r1k2OyrzR6kZQjl7knWSKW0=
+FTP_USER=travis:
+  secure: kh+CnBGx9okgTVSF0PrECBKhoiYbPdwV8NffbfRds7Ym/dNK7+DuOqlj1hlzU48DzndI0MIT7pISr6+Pk2CaOo/LKpRURCnkg1QT+3Zd5rOcrysYnMo4IsXHGqMWaAFU0conqRTpjbeM/M/tf8AGIGfrJYYVqt9I1iRjZaX38h8=
