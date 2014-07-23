@@ -6,5 +6,7 @@ env:
     - secure: "TwBPLD00gzd8LBaJ8Y/cPeMvjyo2TkLNPPQlnNbL4yRfsNNJU+DJej0WI280OXOD0fR187G1jHdX2Z/9ShyOq8BylFh+Cq7DnZTvWVyy/x+lgTn+6DXXw0EezeW1vU03VuSLOj3/Zf9RN2M0g0DEaafn9SrR4/mdEpTgIHzsvKs="
     - secure: "HPnqrRoGHGetD/Gch26a+hxfXBISUOeYlhIJU8AglS12PPxTt2O4OXDQvhkXiDGc8zuPv2HNcbz6/1xEgK5FNw90nB4nQ7jYexM/CS2/lG09fRoTFqsOimyoVRELm73Oa8rtgOZHeQyur89hg5QnRZUv2dBWFycFvmcWiul5bII="
     - secure: "gd5M0/9Eclwl2dwDAehj4hs/D39yJv+ByB7o+EMn1MV9nPo3i0MwCi5A/2XQER35VqgHuYTbaMlqrdXHgihjh5hTQHexPC9KZAeMWQcnoutFKzR1cxnfPrRRzP20qA788oX5y4Q7BRptvI7wTOItcFeK2u8T5/ey1bg6VU0WWHE="
+before_script:
+    - "npm install -g grunt-cli"
 script:
     - "./deploy.sh demo"
