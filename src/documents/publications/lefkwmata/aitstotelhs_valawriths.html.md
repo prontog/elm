@@ -6,14 +6,14 @@ editions:
     - number: 1
       date: 1975
       place: Αθήνα
-      pages: 2ο, 160
+      pages: 2<sup>ο</sup>, 160
       info: δεμένο
       isbn: 
       price: 
     - number: 2
       date: 2009
       place: Αθήνα
-      pages: 2ο, 8+160
+      pages: 2<sup>ο</sup>, 8+160
       info: δεμένο
       isbn: 978-960-7498-37-3
       price: 45

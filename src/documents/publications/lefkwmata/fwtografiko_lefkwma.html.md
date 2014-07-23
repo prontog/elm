@@ -6,7 +6,7 @@ editions:
     - number: 1
       date: 2009
       place: Αθήνα
-      pages: 4ο πλάγιο, 184
+      pages: 4<sup>ο</sup> πλάγιο, 184
       info: δεμένο
       isbn: 978-960-7498-17-5
       price: 30

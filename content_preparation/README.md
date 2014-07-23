@@ -1,21 +1,5 @@
 ## Some useful scripts and commands
 
-### Commands
-
-To replace specific patterns from all markdown (docpad) files:
-    cd src/documents
-    find -type f -regex '.*\.md[\.]?.*' -exec sed -i .bak 's/PATTERN/REPLACEMENT/' {} \;
-** Note: The original files are renamed with the .bak extension. **
-
-Then To remove the .bak files:
-    find -type f -name '*.bak' -delete
-
-To find pages with the same title: 
-    grep -rf <(grep -rh 'title:' | sort | uniq -d)
-
-To convert all PNG images to JPEG:
-    find -type f -name '*.png' -exec bash -c 'convert $1 ${1/.png/.jpg}' _ {} \;
-
 ### Scripts
 
 #### [meta.sh](meta.sh)
@@ -34,3 +18,23 @@ Compresses a TIFF image using LZW compression. Uses [ImageMagick](http://www.ima
 
 #### [to_png.sh](to_png.sh)
 Resizes an image and converts it to PNG format. Uses [ImageMagick](http://www.imagemagick.org/).
+
+### Commands
+
+To replace specific patterns from all markdown (docpad) files:
+    cd src/documents
+    find -type f -regex '.*\.md[\.]?.*' -exec sed -i .bak 's/PATTERN/REPLACEMENT/' {} \;
+** Note: The original files are renamed with the .bak extension. **
+
+Then To remove the .bak files:
+    find -type f -name '*.bak' -delete
+
+To find pages with the same title: 
+    grep -rf <(grep -rh 'title:' | sort | uniq -d)
+
+To convert all PNG images to JPEG:
+    find -type f -name '*.png' -exec bash -c 'convert $1 ${1/.png/.jpg}' _ {} \;
+
+To replace occurences like 2nd to:
+    2<sup>nd</sup>
+./meta.sh --all edit 's/\([[:digit:]][[:digit:]]*\)\([[:alpha:]][[:alpha:]]*\)/\1<sup>\2<\/sup>/g' src/documents

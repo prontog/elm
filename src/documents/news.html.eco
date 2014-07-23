@@ -11,7 +11,7 @@ menuOrder: 5
             <h3 class="news-title"><%= page.title %></h3>
             <div class="news-date"><%= page.newsDate %></div>
             <div class="news-info">
-                <%= page.newsInfo + " " %><a href="<%= page.url %>">(περισσότερα εδώ)</a>
+                <%- page.newsInfo + " " %><a href="<%= page.url %>">(περισσότερα εδώ)</a>
             </div>
         </div>
     <% end %>
