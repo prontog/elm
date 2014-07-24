@@ -11,7 +11,7 @@ menuHidden: false
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        
-        <a href=<%= "#" + "period_" + board.from %> ><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>        
+        <a href="<%= "#" + "period_" + board.from %>" ><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>        
     <% end %>
 </div>
 
@@ -21,7 +21,7 @@ menuHidden: false
 
 <!--Add the periods from the collection-->
 <% for board in @getCollection("boards").toJSON(): %>        
-    <div id=<%= "period_" + board.from %> class="board centered-list">
+    <div id="<%= "period_" + board.from %>" class="board centered-list">
         <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
         <div>
             <%- board.contentRenderedWithoutLayouts %>
