@@ -7,7 +7,7 @@ menuOrder: 4
 <div class="centered-list">
     <h3>Kατηγορίες</h3>        
     <% for categoryPage in  @getCollection("publicationCategories").toJSON(): %>
-        <a href=<%= categoryPage.url %>><%= categoryPage.title %></a>
+        <a href="<%= categoryPage.url %>"><%= categoryPage.title %></a>
     <% end %>
     <br/>
 </div>

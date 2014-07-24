@@ -8,8 +8,8 @@ layout: null
             <% if @getThumb(@pub) == "MISSING": %>
                 <img alt="Χωρίς εξώφυλλο"></img>
             <% else: %>
-                <a href=<%= @getImage(@pub, 'publications') %> >
-                    <img class="pure-img" src=<%= @getThumb(@pub, 'publications') %> alt=<%= "Εξώφυλλο της έκδοσης:" + @pub.title %> ></img>
+                <a href="<%= @getImage(@pub, 'publications') %>" >
+                    <img class="pure-img" src="<%= @getThumb(@pub, 'publications') %>" alt=<%= "Εξώφυλλο της έκδοσης:" + @pub.title %> ></img>
                 </a>
             <% end %>
         </td>

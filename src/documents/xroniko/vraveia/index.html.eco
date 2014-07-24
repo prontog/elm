@@ -5,6 +5,6 @@ menuHidden: false
 
 <div id="top" class="centered-list">
     <% for v in @getIndexHtmlFrom("xroniko/vraveia", [ menuOrder: 1 ]).toJSON(): %>        
-        <a href=<%= v.url %>><%= v.title %></a>
+        <a href="<%= v.url %>"><%= v.title %></a>
     <% end %>
 </div>
