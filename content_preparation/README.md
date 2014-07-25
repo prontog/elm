@@ -38,3 +38,8 @@ To convert all PNG images to JPEG:
 To replace occurences like 2nd to:
     2<sup>nd</sup>
 ./meta.sh --all edit 's/\([[:digit:]][[:digit:]]*\)\([[:alpha:]][[:alpha:]]*\)/\1<sup>\2<\/sup>/g' src/documents
+
+To make all src and href values absolute for opening with a browser locally:
+./meta.sh --all edit 's@="/@="file:///ABS_PATH/@g' out/
+
+where ABS_PATH is the full path of the root directory.

@@ -285,7 +285,7 @@
                     }
                 }
             },
-            atWork: {
+            work: {
                 port: 9777,
                 templateData: {
                     site: {
