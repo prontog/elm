@@ -4,7 +4,7 @@ author:
 contributors: 
 editions: 
     - number: 1
-      date: 2001
+      date: 2002
       place: Αθήνα
       pages: 80
       info: 

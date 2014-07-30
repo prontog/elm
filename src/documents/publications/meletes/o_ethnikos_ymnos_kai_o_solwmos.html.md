@@ -7,7 +7,7 @@ editions:
       date: 2007
       place: Αθήνα
       pages: 8<sup>ο</sup>, 25+128
-      info: Φωτοανατύπωση
+      info: Ανατύπωση της έκδοσης του 1924.
       isbn: 978-960-43-4
       price: 11
 tag: [ Μελέτες ]

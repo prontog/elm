@@ -1,5 +1,5 @@
 ---
-title: Διαλέξεις ποικίλου περιεχομένου
+title: Διαλέξεις
 menuTitle: Διαλέξεις
 menuHidden: false
 ---

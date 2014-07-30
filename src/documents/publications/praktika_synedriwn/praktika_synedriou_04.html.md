@@ -46,7 +46,7 @@ info: Από την τοπική ιστορία στη συνολική: το π
 
 Mehmet Genc: *Η Λευκάδα στις αρχές του ΙΗ' αιώνα.*
 
-Ennio Concina, *Venezia, le citta fortificate, il Levante, Politiche, tecniche, progetti dal XV al XVIII secolo.*
+Ennio Concina, *Venezia, le città fortificate, il Levante, Politiche, tecniche, progetti dal XV al XVIII secolo.*
 
 Donatella Calabi, *Le “Cento Città” dell Antico Regno Cretese*
 

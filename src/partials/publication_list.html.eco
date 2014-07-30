@@ -27,7 +27,10 @@ layout: null
                 <% if pub.info: %>
                     <div>Λοιπές πληρ.: <%- pub.info %></div>
                 <% end %>        
-                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>                    
+                <div>Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %></div>
+                <% if pub.currentEdition.info: %>
+                    <div><%- pub.currentEdition.info %></div>
+                <% end %>
                 <div>Σελίδες: <%- pub.currentEdition.pages %></div>
                 <% if pub.currentEdition.isbn: %>
                     <div>ISBN: <%- pub.currentEdition.isbn %></div>
