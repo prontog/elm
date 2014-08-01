@@ -10,10 +10,17 @@ editions:
       isbn: 
       price:
     - number: 2
-      date: 2006
+      date: 2005
       place: Αθήνα
       pages: "[8] + στ΄ + 5-701"
       info: ανατύπωση με διορθώσεις και συμπληρώσεις
+      isbn:
+      price:
+    - number: 3
+      date: 2006
+      place: Αθήνα
+      pages: "[8] + στ΄ + 5-701"
+      info: ανατύπωση
       isbn: |
             978-960-7498-35-6 
             978-960-7498-34-8 (set)
