@@ -1,7 +1,4 @@
 ---
-title: Επικοινωνία
-menuHidden: false
-menuOrder: 7
 layout: centered
 ---
 

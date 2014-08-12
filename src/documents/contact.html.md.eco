@@ -1,0 +1,9 @@
+---
+title: Επικοινωνία
+menuHidden: false
+menuOrder: 7
+---
+
+<%- @partial("address") %>
+
+<%- @partial("membership") %>
