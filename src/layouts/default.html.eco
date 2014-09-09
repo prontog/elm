@@ -45,7 +45,7 @@
                 <h1><%- @site.title %></h1>
                 <a href="<%= @site.url %>"><img class="pure-img logo" src="<%- @getLogo() %>"/></a>                
             </div>
-            <div class="content">                       
+            <div class="content hyphenate">                       
                 <h2 class="title"><%= @document.title %></h1>
                 <%- @content %>
             </div>

@@ -83,7 +83,8 @@
                          ],
                 scripts: ['/vendor/log.js', 
                           '/vendor/modernizr.js',
-                          '/vendor/ui.js'
+                          '/vendor/ui.js',
+                          '/vendor/hyphenate.js'
                          ]                
             },
             require: require,
