@@ -81,8 +81,8 @@ if [ "$DEPLOY" != "all" ]; then
     rm -rf documents
 fi
 
-FILENAME=elm.tar.gz
+FILENAME=elm_$(date +%Y%m%d).zip
 # Compress everything into a zipped archive.
-tar -czf $FILENAME *
+zip -r $FILENAME *
 
 curl --ftp-create-dirs -T $FILENAME -u $FTP_USER:$FTP_PASSWORD $FTP_URL 

@@ -3,9 +3,9 @@ node_js:
     - "0.10"
 env:
   global:
-    - secure: "TwBPLD00gzd8LBaJ8Y/cPeMvjyo2TkLNPPQlnNbL4yRfsNNJU+DJej0WI280OXOD0fR187G1jHdX2Z/9ShyOq8BylFh+Cq7DnZTvWVyy/x+lgTn+6DXXw0EezeW1vU03VuSLOj3/Zf9RN2M0g0DEaafn9SrR4/mdEpTgIHzsvKs="
-    - secure: "HPnqrRoGHGetD/Gch26a+hxfXBISUOeYlhIJU8AglS12PPxTt2O4OXDQvhkXiDGc8zuPv2HNcbz6/1xEgK5FNw90nB4nQ7jYexM/CS2/lG09fRoTFqsOimyoVRELm73Oa8rtgOZHeQyur89hg5QnRZUv2dBWFycFvmcWiul5bII="
-    - secure: "gd5M0/9Eclwl2dwDAehj4hs/D39yJv+ByB7o+EMn1MV9nPo3i0MwCi5A/2XQER35VqgHuYTbaMlqrdXHgihjh5hTQHexPC9KZAeMWQcnoutFKzR1cxnfPrRRzP20qA788oX5y4Q7BRptvI7wTOItcFeK2u8T5/ey1bg6VU0WWHE="
+    - secure: "Khkm+1vw9FQiMgOqNMav/uzlHRRmYvjFlO3Qiy4GNXM/5ygy/CTWxyDch3TjpVhdfWpiiZikeK+VsCDGTODOpE0GzKxFPvOfkVlOa5flzS/UWs4aeRwz+7qvuUnOT1Uy/gw/0UwHI8wlgiNYasBirc2kV69rZsL5Lfsf0my+aFU="
+    - secure: "AY0YjkBODnK0HCHGwDBXM8WwDMRU0I6PvGm9C3aE/TkIubnZ8LKOLiVC4NcwANPmvrem36hPOPpXpEaEqoLsiv6dm+B+bZEnqjWQrxFmZPgGL0k5Ki62P3MOUVDjBq7KEgUQcOHpjdxfMKqXWVAxfjqrcOOhADtair0TjAhLnko="
+    - secure: "N6VcF8Clh2CNwgSkBZXSEhCpUL6w8uLwaVY6PSvyIZHRmw0SZLZwcAk934Zqvq8wdst9DqLCz16lOoWzrB6yVuXMeLpe8F1IClDDo/9oIjE2tCYIxmDi+Rk1MD5a+AjejBmNvEvW82CDboBIFx8mLEsDPlEXWO6NIZwUFs6wzTA="
 before_script:
     - "npm install -g grunt-cli"
 script:
