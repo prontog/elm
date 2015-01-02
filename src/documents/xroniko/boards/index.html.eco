@@ -7,7 +7,7 @@ menuHidden: false
 Η Εταιρεία διοικείται από 9μελές συμβούλιο, το οποίο εκλέγεται ανά τριετία σε γενική συνέλευση των μελών της. Το Δ.Σ. λειτουργεί με βάση το Καταστατικό της Εταιρείας, το οποίο είναι εγκεκριμένο από το Πρωτοδικείο. Κάθε έτος συγκαλείται ετήσια απολογιστική συνέλευση όπου γίνεται ενημέρωση των μελών για τα πεπραγμένα του Δ.Σ. κατά τη διάρκεια του έτους και κυρίως γίνεται έλεγχος της διαχείρισης των οικονομικών.
 </p>
 
-<div id="top" class="centered-list">
+<div id="top" class="centered">
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
     <% for board in @getCollection("boards").toJSON(): %>        
@@ -21,7 +21,7 @@ menuHidden: false
 
 <!--Add the periods from the collection-->
 <% for board in @getCollection("boards").toJSON(): %>        
-    <div id="<%= "period_" + board.from %>" class="board centered-list">
+    <div id="<%= "period_" + board.from %>" class="board centered">
         <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
         <div>
             <%- board.contentRenderedWithoutLayouts %>

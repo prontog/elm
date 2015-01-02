@@ -50,7 +50,7 @@
                 <%- @content %>
             </div>
             <div class="footer">      
-                <p>ΕΛΜ 2014<br/><a href="/about.html">Πληροφορίες για τον ιστότοπο</a></p>
+                <p>ΕΛΜ 2014-2015<br/><a href="/about.html">Πληροφορίες για τον ιστότοπο</a></p>
             </div>
         </div>
     </div>    

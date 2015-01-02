@@ -2,7 +2,7 @@
 layout: null
 ---
 
-<div class="centered-list">
+<div class="centered">
     <div>
         <%- @content %>
     </div>

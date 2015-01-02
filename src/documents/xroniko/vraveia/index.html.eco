@@ -3,7 +3,7 @@ title: Βραβεία της Εταιρείας
 menuHidden: false
 ---
 
-<div id="top" class="centered-list">
+<div id="top" class="centered">
     <% for v in @getIndexHtmlFrom("xroniko/vraveia", [ menuOrder: 1 ]).toJSON(): %>        
         <a href="<%= v.url %>"><%= v.title %></a>
     <% end %>
