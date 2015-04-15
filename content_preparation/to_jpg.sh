@@ -19,5 +19,5 @@ TARGET=$(dirname "$TARGET")/$(basename "$TARGET" .tif).jpg
 #echo resize: $RESIZE
 echo source: $SOURCE
 #echo target: $TARGET
-convert "$SOURCE" -resize $RESIZE "$TARGET"
+convert "$SOURCE" -strip -quality 85 -resize $RESIZE "$TARGET"
 

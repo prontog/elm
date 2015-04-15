@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname $0)
 # Exit on error.
 set -o errexit
 
@@ -24,24 +25,27 @@ OUTDIR=lzw
 echo Compressing all TIFFs with LZW [indir: $INDIR, outdir: $OUTDIR]
 copy_dir_tree $INDIR $OUTDIR
 cd $INDIR
-find . -type f -name '*.tif' -exec ../compress_lzw.sh "{}" "../$OUTDIR/{}"  \;
+find . -type f -name '*.tif' -exec $SCRIPT_DIR/compress_lzw.sh "{}" "../$OUTDIR/{}"  \;
 cd - > /dev/null
 
-# To convert to heigth-800 PNGs
+# Convert images to JPGs
+HEIGTH=1024
 INDIR=orig
-OUTDIR=800
-echo Converting to heigth-800 PNGs [indir: $INDIR, outdir: $OUTDIR]
+OUTDIR=$HEIGTH
+echo Converting to heigth-${HEIGTH} JPGs [indir: $INDIR, outdir: $OUTDIR]
 copy_dir_tree $INDIR $OUTDIR 
 cd $INDIR
-find . -type f -name '*.tif' -exec ../to_png.sh x800 "{}" "../$OUTDIR/{}"  \;
+find . -type f -name '*.tif' -exec $SCRIPT_DIR/to_jpg.sh x${HEIGTH} "{}" "../$OUTDIR/{}"  \;
 cd - > /dev/null
 
-# To convert to heigth-200 PNGs (Thumbs)
+# Create thumbs
+HEIGTH=400
 INDIR=orig
-OUTDIR=200
-echo Converting to heigth-200 PNGs [indir: $INDIR, outdir: $OUTDIR]
+OUTDIR=$HEIGTH
+echo Converting to heigth-${HEIGTH} JPGs [indir: $INDIR, outdir: $OUTDIR]
 copy_dir_tree $INDIR $OUTDIR 
 cd $INDIR
-find . -type f -name '*.tif' -exec ../to_png.sh x200 "{}" "../$OUTDIR/{}"  \;
+find . -type f -name '*.tif' -exec $SCRIPT_DIR/to_jpg.sh x${HEIGTH} "{}" "../$OUTDIR/{}"  \;
+#ToDo: Add -th before the extension.
 cd - > /dev/null
 
