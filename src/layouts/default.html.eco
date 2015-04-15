@@ -21,16 +21,17 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="/styles/side-menu-old-ie.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="/styles/side-menu.css">
-    <!--<![endif]-->
-    
     <!-- DocPad Styles + Our Own -->
 	<%- @getBlock('styles').add(@site.styles).toHTML() %>
     
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/styles/side-menu-old-ie.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/styles/side-menu.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--<![endif]-->
 </head>
 <body>
     <div id="layout">

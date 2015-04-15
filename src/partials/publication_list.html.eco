@@ -3,48 +3,45 @@ layout: null
 ---
 
 <% for pub in @publications: %>
-    <div class="publication publication-entry">
-        <table><tr>
-            <td>                
-                <% if @getThumb(pub) == "MISSING": %>
-                    <img alt="Χωρίς εξώφυλλο"></img>
-                <% else: %>
-                    <a href="<%= pub.url %>" >
-                        <img class="pure-img" src="<%= @getThumb(pub, 'publications') %>" alt=<%= "Εξώφυλλο της έκδοσης:" + pub.title %> ></img>
-                    </a>
+    <div class="pure-g publication publication-entry">
+        <div class="pure-u-1-1 pure-u-md-7-24">                
+            <% if @getThumb(pub) == "MISSING": %>
+                <img alt="Χωρίς εξώφυλλο"></img>
+            <% else: %>
+                <a href="<%= pub.url %>" >
+                    <img class="pure-img" src="<%= @getThumb(pub, 'publications') %>" alt=<%= "Εξώφυλλο της έκδοσης:" + pub.title %> ></img>
+                </a>
+            <% end %>
+        </div>
+        <div class="pure-u-md-1-24"></div>
+        <div class="pure-u-1-1 pure-u-md-16-24">
+            <div><a href="<%= pub.url %>" class="publication-title"><%- pub.title %></a></div>
+            <% if pub.author: %>
+                <div>Συγγραφέας: <%- pub.author %></div>
+            <% end %>
+            <% if pub.contributors: %>
+                <div><%- pub.contributors %></div>
+            <% end %>
+            <% if pub.info: %>
+                <div>Λοιπές πληρ.: <%- pub.info %></div>
+            <% end %>        
+            <div>
+                Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %>
+                <% if pub.currentEdition.number > 1: %>
+                    <%- " (" + pub.currentEdition.number + "<sup>η</sup> έκδοση)" %>
                 <% end %>
-            </td>
-            <td>
-                <div><a href="<%= pub.url %>" class="publication-title"><%- pub.title %></a></div>
-                <% if pub.author: %>
-                    <div>Συγγραφέας: <%- pub.author %></div>
-                <% end %>
-                <% if pub.contributors: %>
-                    <div><%- pub.contributors %></div>
-                <% end %>
-                <br/>
-                <br/>
-                <% if pub.info: %>
-                    <div>Λοιπές πληρ.: <%- pub.info %></div>
-                <% end %>        
-                <div>
-                    Εκδόθηκε: <%- pub.currentEdition.place + " " + pub.currentEdition.date %>
-                    <% if pub.currentEdition.number > 1: %>
-                        <%- " (" + pub.currentEdition.number + "<sup>η</sup> έκδοση)" %>
-                    <% end %>
-                </div>
-                <% if pub.currentEdition.info: %>
-                    <div><%- pub.currentEdition.info %></div>
-                <% end %>
-                <div>Σελίδες: <%- pub.currentEdition.pages %></div>
-                <% if pub.currentEdition.isbn: %>
-                    <div>ISBN: <%- pub.currentEdition.isbn %></div>
-                <% end %>
-                <% if pub.currentEdition.price: %>
-                    <div>Τιμή: <%- pub.currentEdition.price %> € </div>
-                <% end %>
-            </td>
-        </tr></table>
+            </div>
+            <% if pub.currentEdition.info: %>
+                <div><%- pub.currentEdition.info %></div>
+            <% end %>
+            <div>Σελίδες: <%- pub.currentEdition.pages %></div>
+            <% if pub.currentEdition.isbn: %>
+                <div>ISBN: <%- pub.currentEdition.isbn %></div>
+            <% end %>
+            <% if pub.currentEdition.price: %>
+                <div>Τιμή: <%- pub.currentEdition.price %> € </div>
+            <% end %>
+        </div>
     </div>
     <br/>
 <% end %>

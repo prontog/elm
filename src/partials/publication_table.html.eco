@@ -2,52 +2,50 @@
 layout: null
 ---
 <br/>
-<div class="publication">
-    <table><tr>
-        <td>                
-            <% if @getThumb(@pub) == "MISSING": %>
-                <img alt="Χωρίς εξώφυλλο"></img>
-            <% else: %>
-                <a href="<%= @getImage(@pub, 'publications') %>" >
-                    <img class="pure-img" src="<%= @getThumb(@pub, 'publications') %>" alt=<%= "Εξώφυλλο της έκδοσης:" + @pub.title %> ></img>
-                </a>
+<div class="pure-g publication">
+    <div class="pure-u-1-1 pure-u-md-7-24">                
+        <% if @getThumb(@pub) == "MISSING": %>
+            <img alt="Χωρίς εξώφυλλο"></img>
+        <% else: %>
+            <a href="<%= @getImage(@pub, 'publications') %>" >
+                <img class="pure-img" src="<%= @getThumb(@pub, 'publications') %>" alt=<%= "Εξώφυλλο της έκδοσης:" + @pub.title %> ></img>
+            </a>
+        <% end %>
+    </div>
+    <div class="pure-u-md-1-24"></div>
+    <div class="pure-u-1-1 pure-u-md-16-24">
+        <div><span class="publication-title"><%- @pub.title %></span></div>
+        <% if @pub.author: %>
+            <div>Συγγραφέας: <%- @pub.author %></div>
+        <% end %>
+        <% if @pub.contributors: %>
+            <div><%- @pub.contributors %></div>
+        <% end %>
+        <br/>
+        <% if @pub.info: %>
+            <div>Λοιπές πληρ.: <%- @pub.info %></div>
+        <% end %>
+        <% if @pub.tag and @pub.tag.length > 0: %>
+            <div><%- @pub.tag[0] %></div>
+        <% end %>
+        <% for edition in @pub.editions: %> 
+            <div>Έκδοση: <%- edition.number + "η" %></div>
+            <div>Εκδόθηκε: <%- edition.place + " " + edition.date %></div>                    
+            <% if edition.pages: %>
+                <div>Σελίδες: <%- edition.pages %></div>
             <% end %>
-        </td>
-        <td>
-            <div><span class="publication-title"><%- @pub.title %></span></div>
-            <% if @pub.author: %>
-                <div>Συγγραφέας: <%- @pub.author %></div>
+            <% if edition.info: %>
+                <div>Πληρ.: <%- edition.info %></div>
             <% end %>
-            <% if @pub.contributors: %>
-                <div><%- @pub.contributors %></div>
+            <% if edition.isbn: %>
+                <div>ISBN: <%- edition.isbn %></div>
+            <% end %>
+            <% if edition.price: %>
+                <div>Τιμή: <%- edition.price %> € </div>
             <% end %>
             <br/>
-            <br/>
-            <% if @pub.info: %>
-                <div>Λοιπές πληρ.: <%- @pub.info %></div>
-            <% end %>
-            <% if @pub.tag and @pub.tag.length > 0: %>
-                <div><%- @pub.tag[0] %></div>
-            <% end %>
-            <% for edition in @pub.editions: %> 
-                <div>Έκδοση: <%- edition.number + "η" %></div>
-                <div>Εκδόθηκε: <%- edition.place + " " + edition.date %></div>                    
-                <% if edition.pages: %>
-                    <div>Σελίδες: <%- edition.pages %></div>
-                <% end %>
-                <% if edition.info: %>
-                    <div>Πληρ.: <%- edition.info %></div>
-                <% end %>
-                <% if edition.isbn: %>
-                    <div>ISBN: <%- edition.isbn %></div>
-                <% end %>
-                <% if edition.price: %>
-                    <div>Τιμή: <%- edition.price %> € </div>
-                <% end %>
-                <br/>
-            <% end %>
-        </td>
-    </tr></table>
+        <% end %>
+    </div>
 </div>
 <%- @partial("publication_footer") %>
 <br/>
