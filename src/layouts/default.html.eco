@@ -47,11 +47,11 @@
                 <a href="<%= @site.url %>"><img class="pure-img logo" src="<%- @getLogo() %>"/></a>                
             </div>
             <div class="content hyphenate">                       
-                <h2 class="title"><%= @document.title %></h1>
+                <h2 class="title"><%= @getPreparedTitle() %></h1>
                 <%- @content %>
             </div>
             <div class="footer">      
-                <p>ΕΛΜ 2014-2015<br/><a href="/about.html">Πληροφορίες για τον ιστότοπο</a></p>
+                <p>ΕΛΜ 2014-<%= @getCurrentYear() %><br/><a href="/about.html">Πληροφορίες για τον ιστότοπο</a></p>
             </div>
         </div>
     </div>    

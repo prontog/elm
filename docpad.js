@@ -1,3 +1,6 @@
+/*jslint nomen:true, vars:true, devel:true, browser:true, white:true */
+/*globals require:true, _:true */
+
 (function() {
     "use strict";
     
@@ -5,30 +8,33 @@
     var fs = require("fs");
     var path = require("path");
     var os = require("os");
+    var eco = require("eco");
     
     var __indexOf = [].indexOf || function(item) {
-            for (var i = 0, l = this.length; i < l; i++) { 
-                if (i in this && this[i] === item) 
+            var i, l;
+            for (i = 0, l = this.length; i < l; i++) { 
+                if (i in this && this[i] === item) { 
                     return i;
+                }
             }
             return -1; 
     };
     
     var writeToFile = function(fname, text) {        
         fs.writeFile(fname, text + "\n", function (err) {
-          if (err) return console.log(err);
+          if (err) { return console.log(err); }
         });
-    }
+    };
     
     var appendToFile = function(fname, text) {        
         fs.appendFile(fname, text + "\n", function (err) {
-          if (err) return console.log(err);
+          if (err) { return console.log(err); }
         });
-    }
+    };
     
     var asJSON = function(obj) {
         return JSON.stringify(obj);
-    }
+    };
     
     var getObjMembers = function(obj) {
         var retStr = "Properties---------\n";
@@ -36,7 +42,7 @@
         retStr += "\nFunctions---------\n";
         retStr += _.functions(obj).join("\n");
         return retStr;
-    }
+    };
     
     // Creates a RegExp based on the origPath regular expression. On non-Windows machines it 
     // uses the provided string without modifying it. On Windows it tries to normalize the
@@ -44,11 +50,11 @@
     var createPathRegExp = function(origPath) {        
         var normalizedPath = origPath;
         if (/^Windows/i.test(os.type())) {
-            var normalizedPath = path.normalize(origPath).replace(/\\/g, "\\\\");
+            normalizedPath = path.normalize(origPath).replace(/\\/g, "\\\\");
         }
         
         return new RegExp(normalizedPath);
-    }
+    };
     
     var helpers = {
         getIndexHtmlFrom: function(path, comparator) {            
@@ -90,7 +96,7 @@
             require: require,
             getPreparedTitle: function() {
                 if (this.document.title) {
-                  return this.document.title;
+                  return eco.render(this.document.title, docpadConfig.templateData);
                 } else {
                   return this.site.title;
                 }
@@ -106,12 +112,14 @@
                 pageFlag: false,  
                 menuFlag: false,
                 page: function(msg) {
-                    if (this.pageFlag)
+                    if (this.pageFlag) {
                         console.log(msg);
+                    }
                 },
                 menu: function(msg) {
-                    if (this.menuFlag)
+                    if (this.menuFlag) {
                         console.log(msg);
+                    }
                 }
             },
             writeToFile: writeToFile,
@@ -147,7 +155,7 @@
             },
             getPublicationGroups: function() {
                 var pubs = this.getCollection("publications").toJSON();
-                if (!pubs) console.log("pubs is undefined");
+                if (!pubs) { console.log("pubs is undefined"); }
                 var pubsByTag = _.groupBy(pubs, function(pub) {
                     //writeToFile("pub.json", JSON.stringify(pub)); 
                     if (pub.tag && pub.tag.length > 0) {
@@ -166,7 +174,7 @@
             getDoc: function(query) {
                 var doc;
                 try {
-                    var doc = helpers.getDoc.call(this, query);
+                    doc = helpers.getDoc.call(this, query);
                     //writeToFile("file", getObjMembers(doc));
                 }
                 catch(e) {
@@ -183,6 +191,25 @@
                 else {
                     return "/images/logo_light.png";
                 }
+            },
+            getCurrentYear: function() {
+                return new Date().getFullYear();
+            },
+            getYears: function() {
+                return this.getCurrentYear() - 1970;
+            },
+            getPublicationCount: function() {
+                // Note that there are 3 multitome books.
+                return this.getCollection("publications").length - 3;
+            },
+            getSymposiumCount: function() {
+                return 20;
+            },
+            getConferenceCount: function() {
+                return 4 + 1;
+            },
+            getMajorEvents: function() {
+                return this.getConferenceCount() + this.getSymposiumCount();
             }
         },        
         collections: {
@@ -219,14 +246,14 @@
                 var noIndexHtml = function(model) {
                     var m = model.toJSON();
                     var isPub = createPathRegExp("^publications/.").test(m.relativeOutDirPath);
-                    var isIndexHtml = m.basename === "index" 
+                    var isIndexHtml = m.basename === "index"; 
                     return isPub && !isIndexHtml;
                 };
-                
+                                
                 return this.getCollection("html")
                            .createLiveChildCollection()
                            .setFilter("no_index_html", noIndexHtml)
-                           .setComparator([{ date: 1 }, { title: 1 }])
+                           .setComparator([{ date: 1 }, { orderIndex: 1 }, { title: 1 }])
                            .on("add", function (model) {
                                 model.setMeta("layout", "publication");
                                 var editions = model.getMeta("editions");  
@@ -240,7 +267,7 @@
                     
                                     model.setMeta("currentEdition", currentEdition);
                                     model.setMeta("date", currentEdition.date);
-                                }                               
+                                }                    
                             });
             },
             publicationCategories: function() {                

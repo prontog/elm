@@ -1,5 +1,5 @@
 ---
-title: Χρονικό 1970-2015
+title: Χρονικό 1970-<%- @getCurrentYear() %>
 menuTitle: Χρονικό
 menuHidden: false
 menuOrder: 2
