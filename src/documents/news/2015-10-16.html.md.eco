@@ -5,6 +5,6 @@ newsInfo: Κυκλοφόρησε στις αρχές Οκτωβρίου το 68<
 
 Κυκλοφόρησαν, στις αρχές Οκτωβρίου, δύο νέες εκδόσεις της Εταιρείας Λευκαδικών Μελετών οι οποίες περιέχουν τα *Πρακτικά των Συμποσίων ΙΣΤ’, ΙΖ’, ΙΗ’* και τα *Πρακτικά του Συμποσίου ΙΘ’* αντίστοιχα. Οι εκδόσεις της Εταιρείας ανέρχονται πλέον στις 69.
 
-<% group = @getCollection("publications").findAll({ title: /Πρακτικά Ι(ΣΤ|Θ)΄/ }).toJSON() %>    
+<% group = @getCollection("publications").findAll({ title: /Πρακτικά Ι(ΣΤ|Θ)΄/ }, { orderIndex: 1 }).toJSON() %>    
 <%- @partial("publication_list", { publications: group }) %>    
 <%- @partial("publication_footer") %>
