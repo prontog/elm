@@ -77,7 +77,7 @@
     var docpadConfig = { 
         templateData: {
             site: {
-                url: "http://www.lefkadika.gr",
+                url: "http://lefkadika.gr",
                 oldUrls: ['www.website.com', 'website.herokuapp.com'],
                 title: "Εταιρεία Λευκαδικών Μελετών",
                 // ToDo:
@@ -321,17 +321,10 @@
                     }
                 }
             },
-            demo: {
-                templateData: {
-                    site: {
-                        url: "http://www.ronto.net"
-                    }
-                }                
-            },
             production: {
                 templateData: {
                     site: {
-                        url: "http://www.lefkadika.gr"
+                        url: "http://lefkadika.gr"
                     }
                 }                
             }
