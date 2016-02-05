@@ -78,7 +78,7 @@
                 description: "H Εταιρεία Λευκαδικών Μελετών είναι το μοναδικό επιστημονικό σωματείο της Λευκάδας",
                 // ToDo:
                 keywords: "λευκάδα, λευκαδικά, επιστημονική εταιρεία, επιστημονικό σωματείο, lefkas, history, ιστορία, λαογραφία, φιλολογία, αρχαιολογία, φολκλόρ, τοπική ιστορία, επτανησιακή ιστορία",
-                styles: ['http://yui.yahooapis.com/pure/0.5.0/pure-min.css',
+                styles: ['/vendor/pure-min.css',
                          '/styles/style.css'                         
                          ],
                 scripts: ['/vendor/log.js', 
