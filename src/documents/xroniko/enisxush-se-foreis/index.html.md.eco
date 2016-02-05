@@ -1,0 +1,7 @@
+---
+title: Οικονομική Ενίσχυση της Εταιρείας σε άλλους φορείς
+menuTitle: Ενίσχυση σε φορείς
+menuHidden: false
+---
+
+<%- @partial("activities_by_year", { activity: /Ενίσχυση σε φορείς/ }) %>

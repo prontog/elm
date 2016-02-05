@@ -1,0 +1,7 @@
+---
+title: Τα Μέλη της Εταιρείας
+menuTitle: Μέλη
+menuHidden: false
+---
+
+<%- @partial("activities_by_year", { activity: /Μέλη/ }) %>

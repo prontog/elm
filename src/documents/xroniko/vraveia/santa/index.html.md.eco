@@ -1,0 +1,7 @@
+---
+title: Κληροδότημα Παναγιώτη και Ελένης Σάντα
+menuTitle: Παναγιώτη και Ελένης Σάντα
+menuHidden: false
+---
+
+<%- @partial("activities_by_year", { activity: /Βραβεία Σάντα/ }) %>

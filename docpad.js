@@ -60,14 +60,8 @@
         getIndexHtmlFrom: function(path, comparator) {            
             //var re = new RegExp("^" + path + "\/.*\/index.html");
             var re = createPathRegExp("^" + path + "/.*/index.html");
-            if (comparator) {
-                return this.getCollection("html")
-                            .findAllLive({ relativeOutPath: re }, comparator);
-            }
-            else {
-                return this.getCollection("html")
-                            .findAllLive({ relativeOutPath: re });
-            }
+            return this.getCollection("html")
+                       .findAllLive({ relativeOutPath: re }, comparator);            
         },
         getDoc: function(query) {
             return this.getCollection("html").findOne(query).toJSON();
@@ -108,6 +102,7 @@
                 return this.site.keywords.concat(this.document.keywords || [])
                                          .join(', ');
             },
+            console: console,
             trace: {
                 pageFlag: false,  
                 menuFlag: false,
@@ -210,8 +205,13 @@
             },
             getMajorEvents: function() {
                 return this.getConferenceCount() + this.getSymposiumCount();
+            },
+            yearComparator: function(a, b) {
+                var aS = a.getMeta("year").toString().substr(0, 4);
+                var bS = b.getMeta("year").toString().substr(0, 4);
+                return parseInt(aS) - parseInt(bS);
             }
-        },        
+        },
         collections: {
             // All pages, by default, have the "default" layout and are hidden from the menu.
             pages: function () {

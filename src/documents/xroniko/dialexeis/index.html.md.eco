@@ -1,0 +1,7 @@
+---
+title: Διαλέξεις
+menuTitle: Διαλέξεις
+menuHidden: false
+---
+
+<%- @partial("activities_by_year", { activity: /Διαλέξεις/ }) %>

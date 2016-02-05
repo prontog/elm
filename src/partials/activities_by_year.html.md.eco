@@ -1,0 +1,8 @@
+---
+layout: null
+---
+<% group = @getCollection("pages").findAll({ activity: @activity }, @yearComparator).toJSON() %>
+<% for page in group: %>
+## <%- page.year %>
+<%- page.body %>
+<% end %>

@@ -1,0 +1,6 @@
+---
+title: Βραβεία της Ακαδημίας Αθηνών στην Εταιρεία
+menuHidden: false
+---
+
+<%- @partial("activities_by_year", { activity: /Βραβεία Ακαδημίας Αθηνών/ }) %>
