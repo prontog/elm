@@ -4,18 +4,14 @@ SCRIPT_NAME=$(basename $0)
 # Function to output usage information.
 usage() {
     cat << EOF
-Usage: $SCRIPT_NAME [OPTION] DOCPAD_ENV
-Deploys the web site using the settings of a docpad environment.
+Usage: $SCRIPT_NAME [OPTION]
+Deploys the web site.
 
 Options:
   -a
         deploy everything.
   -h
         display this help and exit
-
-docpad Environment
-
-        the enviroment to be used from the docpad configuration file.
 
 Note:
 
@@ -51,23 +47,14 @@ do
 	esac
 done
 
-# First non-option argument should be the docpad environment.
-DOCPAD_ENV=${@:$OPTIND}
-
-# Validate arguments.
-# If no parameter is specified
-if [ "$DOCPAD_ENV" == "" ]; then
-    usage
-fi
-
 # Exit on error.
 set -o errexit
 
 # Generate the static site.
 echo Cleaning out directory...
-docpad --env DOCPAD_ENV clean
+docpad clean
 echo Generating static site...
-docpad --env DOCPAD_ENV generate
+docpad generate
 
 # Execute Grunt file.
 grunt

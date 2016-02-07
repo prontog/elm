@@ -9,4 +9,4 @@ env:
 before_script:
     - "npm install -g grunt-cli"
 script:
-    - "./deploy.sh production"
+    - "./deploy.sh"

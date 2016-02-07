@@ -72,7 +72,6 @@
         templateData: {
             site: {
                 url: "http://lefkadika.gr",
-                oldUrls: ['www.website.com', 'website.herokuapp.com'],
                 title: "Εταιρεία Λευκαδικών Μελετών",
                 // ToDo:
                 description: "H Εταιρεία Λευκαδικών Μελετών είναι το μοναδικό επιστημονικό σωματείο της Λευκάδας",
@@ -312,21 +311,6 @@
                         url: "http://localhost:9777"
                     }
                 }
-            },
-            work: {
-                port: 9777,
-                templateData: {
-                    site: {
-                        url: "http://172.18.27.159:9777"
-                    }
-                }
-            },
-            production: {
-                templateData: {
-                    site: {
-                        url: "http://lefkadika.gr"
-                    }
-                }                
             }
         },        
         events: {
