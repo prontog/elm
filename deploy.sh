@@ -28,12 +28,6 @@ error() {
     exit 1
 }
 
-# Validate arguments.
-# If no parameter is specified
-if [ $# == 0 ]; then
-    usage
-fi
-
 # Parse options.
 while getopts ha currOption
 do
