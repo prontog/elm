@@ -3,4 +3,4 @@ title: Παρουσίαση βιβλίων
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Παρουσίαση βιβλίων/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Παρουσίαση βιβλίων/ } }) %>

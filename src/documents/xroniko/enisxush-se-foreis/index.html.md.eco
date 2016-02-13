@@ -4,4 +4,4 @@ menuTitle: Ενίσχυση σε φορείς
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Ενίσχυση σε φορείς/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Ενίσχυση σε φορείς/ } }) %>

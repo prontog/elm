@@ -22,8 +22,8 @@ menuHidden: false
 
 Η Εταιρεία αγόρασε αποθήκη \(Καββαθά 43\). Για την αγορά διέθεσε 30.000 δραχμές. Η αξία της αποθήκης ήταν 45.000, αλλά το 1/3 της αξίας ανήκε στον Πάνο Σάντα, ο οποίος το χάρισε στην Εταιρεία.
 
-<%- @partial("activities_by_year", { activity: /Δωρεές/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Δωρεές/ } }) %>
 
 ## Χορηγίες για έκδοση βιβλίων.
 
-<%- @partial("activities_by_year", { activity: /Χορηγίες για έκδοση βιβλίων/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Χορηγίες για έκδοση βιβλίων/ } }) %>

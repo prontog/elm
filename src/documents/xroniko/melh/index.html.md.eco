@@ -4,4 +4,4 @@ menuTitle: Μέλη
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Μέλη/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Μέλη/ } }) %>

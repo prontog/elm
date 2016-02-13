@@ -6,4 +6,4 @@ menuTitle: Αλέκου Παναγούλη
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Βραβεία Αλέκου Παναγούλη/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Βραβεία Αλέκου Παναγούλη/ } }) %>

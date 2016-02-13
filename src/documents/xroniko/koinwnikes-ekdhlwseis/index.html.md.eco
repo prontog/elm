@@ -4,4 +4,4 @@ menuTitle: Κοινωνικές εκδηλώσεις
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Κοινωνικές εκδηλώσεις/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Κοινωνικές εκδηλώσεις/ } }) %>

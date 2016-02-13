@@ -4,4 +4,4 @@ menuTitle: Παναγιώτη και Ελένης Σάντα
 menuHidden: false
 ---
 
-<%- @partial("activities_by_year", { activity: /Βραβεία Σάντα/ }) %>
+<%- @partial("activities_by_year", { filter: { activity: /Βραβεία Σάντα/ } }) %>
