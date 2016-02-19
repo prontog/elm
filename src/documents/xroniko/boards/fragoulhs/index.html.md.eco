@@ -1,0 +1,8 @@
+---
+menuTitle: Φραγκούλη (70-74)
+period: Βασιλείου Φραγκούλη
+from: 1971
+until: 1974
+---
+
+<%- @partial("boards_by_period", { period: 'Βασιλείου Φραγκούλη' }) %>

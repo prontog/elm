@@ -1,0 +1,8 @@
+---
+menuTitle: Kατωπόδη (09-13)
+period: Θωμά Π. Kατωπόδη
+from: 2009
+until: 2013
+---
+
+<%- @partial("boards_by_period", { period: 'Θωμά Π. Kατωπόδη' }) %>

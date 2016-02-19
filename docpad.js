@@ -1,5 +1,5 @@
 /*jslint nomen:true, vars:true, devel:true, browser:true, white:true */
-/*globals require:true, _:true */
+/*globals require:true, _:true, module:true */
 
 (function() {
     "use strict";
@@ -209,6 +209,19 @@
                 var aS = a.getMeta("year").toString().substr(0, 4);
                 var bS = b.getMeta("year").toString().substr(0, 4);
                 return parseInt(aS) - parseInt(bS);
+            },
+            getBoardPeriods: function() {
+                var periods = _.groupBy(this.getCollection("boards").toJSON(), "period");
+                
+                var boardPeriods = _.map(periods, function(p) {
+                    p = _.sortBy(p, "from");
+                                        
+                    return { period: _.first(p).period,
+                             from: _.first(p).from,
+                             until: _.last(p).until };
+                });
+                
+                return _.sortBy(boardPeriods, "from");
             }
         },
         collections: {
@@ -273,7 +286,9 @@
                 return helpers.getIndexHtmlFrom.call(this, "publications", [{ menuOrder: 1 }]); 
             },
             boards: function () {
-                return helpers.getIndexHtmlFrom.call(this, "xroniko/boards", [{ from: 1 }])
+                return this.getCollection("html")
+                           .findAllLive({ relativeOutDirPath: /boards/,
+                                          basename: { $ne: 'index' } }, [{ date: -1 }])
                            .on("add", function (model) {
                                 var period = model.getMeta("period");
                                 var from = model.getMeta("from");
@@ -322,8 +337,8 @@
                 oldUrls = latestConfig.templateData.site.oldUrls || [];
                 newUrl = latestConfig.templateData.site.url;
                 return server.use(function(req, res, next) {
-                    var _ref;
-                    if (_ref = req.headers.host, __indexOf.call(oldUrls, _ref) >= 0) {
+                    var _ref = req.headers.host;
+                    if (_ref && __indexOf.call(oldUrls, _ref) >= 0) {
                         return res.redirect(newUrl + req.url, 301);
                     } else {
                         return next();

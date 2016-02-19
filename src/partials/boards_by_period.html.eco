@@ -1,0 +1,7 @@
+---
+layout: null
+---
+<% for board in @getCollection('boards').findAll({ period: @period }, { 'from': 1 }).toJSON(): %>
+    <h3><%- board.desc %></h3>
+    <%- board.contentRenderedWithoutLayouts or board.body %>
+<% end %>

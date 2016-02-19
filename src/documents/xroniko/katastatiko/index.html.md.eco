@@ -17,7 +17,7 @@ menuHidden: false
 Το πρώτον Διοικητικόν Συμβούλιον κατηρτίσθη κατά τας διατάξεις του Καταστατικού ως κάτωθι:
 
 
-<% firstBoard = @getDoc({ relativeOutPath: @createPathRegExp("boards/fragoulhs/prwto.html") }) %>
+<% firstBoard = @getDoc({ relativeOutPath: @createPathRegExp("boards/fragoulhs/1970-1971.html") }) %>
 <%- firstBoard.contentRenderedWithoutLayouts or firstBoard.body %>
 
 

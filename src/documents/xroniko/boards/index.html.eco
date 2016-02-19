@@ -7,11 +7,11 @@ menuHidden: false
 Η Εταιρεία διοικείται από 9μελές συμβούλιο, το οποίο εκλέγεται ανά τριετία σε γενική συνέλευση των μελών της. Το Δ.Σ. λειτουργεί με βάση το Καταστατικό της Εταιρείας, το οποίο είναι εγκεκριμένο από το Πρωτοδικείο. Κάθε έτος συγκαλείται ετήσια απολογιστική συνέλευση όπου γίνεται ενημέρωση των μελών για τα πεπραγμένα του Δ.Σ. κατά τη διάρκεια του έτους και κυρίως γίνεται έλεγχος της διαχείρισης των οικονομικών.
 </p>
 
-<div id="top" class="centered">
+<div id='top' class='centered'>
     <h3>Περίοδοι Προεδρίας</h3>
     <!--Add the links to each period-->
-    <% for board in @getCollection("boards").toJSON(): %>        
-        <a href="<%= "#" + "period_" + board.from %>" ><%=  board.period + " (" + board.from + "-" + board.until + ")" %></a>        
+    <% for boardPeriod in @getBoardPeriods(): %>
+        <a href='<%= '#' + 'period_' + boardPeriod.from %>' ><%=  boardPeriod.period + ' (' + boardPeriod.from + '-' + boardPeriod.until + ')' %></a>        
     <% end %>
 </div>
 
@@ -20,11 +20,9 @@ menuHidden: false
 </p>
 
 <!--Add the periods from the collection-->
-<% for board in @getCollection("boards").toJSON(): %>        
-    <div id="<%= "period_" + board.from %>" class="board centered">
-        <h2><%=  "Περίοδος Προεδρίας " + board.period %></h2>
-        <div>
-            <%- board.contentRenderedWithoutLayouts %>
-        </div>
+<% for boardPeriod in @getBoardPeriods(): %>
+    <div id='<%= 'period_' + boardPeriod.from %>' class='board centered'>
+        <h2><%=  'Περίοδος Προεδρίας ' + boardPeriod.period %></h2>
+        <%- @partial("boards_by_period", { period: boardPeriod.period }) %>
     </div>
 <% end %>
