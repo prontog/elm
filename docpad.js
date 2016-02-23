@@ -227,7 +227,11 @@
             },
             getTimelineActivities: function() {
                 return this.getCollection("activities")
-                           .findAll({ activity: { $in: ["Διαλέξεις", "Εκδηλώσεις", "Συμπόσια", "Συνέδρια"] } });
+                           .findAll({ activity: { $in: ["Διαλέξεις", 
+                                                        "Εκδηλώσεις", 
+                                                        "Συμπόσια", 
+                                                        "Συνέδρια", 
+                                                        "Παρουσίαση βιβλίων"] } });
             },
             getTimelineYears: function() {
                 var timelineYears = this.getTimelineActivities()                                                            .pluck("year");
