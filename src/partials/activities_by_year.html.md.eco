@@ -4,5 +4,5 @@ layout: null
 <% group = @getCollection("pages").findAll(@filter, @yearComparator).toJSON() %>
 <% for page in group: %>
 ## <%- page.year %>
-<%- page.altText or page.body %>
+<%- page.altText or page.body or page.description %>
 <% end %>
