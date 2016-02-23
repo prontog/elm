@@ -1,9 +1,9 @@
 ---
 activity: Συνέδρια
 year: 1993
-description: 
+description: ""
 ---
 
 Το Δ' συνέδριο έγινε στη Λευκάδα από 8-12 Σεπτεμβρίου 1993, με θέμα: *Από την τοπική ιστορία στη συνολική. Το παράδειγμα της Λευκάδας, 15<sup>ος</sup>-19<sup>ος</sup> αι.* Το Συνέδριο αυτό ήταν αφιερωμένο στον Πρόεδρο της Εταιρείας Πάνο Γ. Ροντογιάννη.
 
-Τα [Πρακτικά](/publications/praktika_synedriwn/praktika_synedriou_04.html) εκδόθηκαν το 1996.
+Τα [*Πρακτικά*](/publications/praktika_synedriwn/praktika_synedriou_04.html) εκδόθηκαν το 1996.

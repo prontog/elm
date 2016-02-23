@@ -2,9 +2,9 @@
 activity: Εκδηλώσεις
 year: 2005 
 subject: Γνωριμία με τη Λευκάδα
-description: 
+description: "*Διεπιστημονική Ημερίδα, Γνωριμία με τη Λευκάδα,* Αθήνα 16 Απριλίου 2005. Τα [*Πρακτικά*](/publications/epetiaka-afierwmata/gnwrimia_me_thn_lefkada.html) εκδόθηκαν το 2006."
 ---
 
 Εταιρεία Λευκαδικών Μελετών - Σύλλογος Λευκαδίων Φοιτητών και Σπουδαστών Αττικής
 
-Διεπιστημονική Ημερίδα. Γνωριμία με τη Λευκάδα, Αθήνα 16 Απριλίου 2005. Τα [Πρακτικά](/publications/epetiaka-afierwmata/gnwrimia_me_thn_lefkada.html) εκδόθηκαν το 2006.
+Διεπιστημονική Ημερίδα. Γνωριμία με τη Λευκάδα, Αθήνα 16 Απριλίου 2005. Τα [*Πρακτικά*](/publications/epetiaka-afierwmata/gnwrimia_me_thn_lefkada.html) εκδόθηκαν το 2006.
