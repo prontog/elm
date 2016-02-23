@@ -211,17 +211,59 @@
                 return parseInt(aS) - parseInt(bS);
             },
             getBoardPeriods: function() {
-                var periods = _.groupBy(this.getCollection("boards").toJSON(), "period");
+                var boardPeriods = _.chain(this.getCollection("boards").toJSON())
+                                    .groupBy("period")
+                                    .map(function(p) {
+                                        p = _.sortBy(p, "from");
+
+                                        return { period: _.first(p).period,
+                                                 from: _.first(p).from,
+                                                 until: _.last(p).until };
+                                    })
+                                    .sortBy("from")
+                                    .value();
                 
-                var boardPeriods = _.map(periods, function(p) {
-                    p = _.sortBy(p, "from");
-                                        
-                    return { period: _.first(p).period,
-                             from: _.first(p).from,
-                             until: _.last(p).until };
-                });
+                return boardPeriods;
+            },
+            getTimelineActivities: function() {
+                return this.getCollection("activities")
+                           .findAll({ activity: { $in: ["Διαλέξεις", "Εκδηλώσεις", "Συμπόσια", "Συνέδρια"] } });
+            },
+            getTimelineYears: function() {
+                var timelineYears = this.getTimelineActivities()                                                            .pluck("year");
                 
-                return _.sortBy(boardPeriods, "from");
+                var publicationYears = _.chain(this.getCollection("publications").toJSON())
+                            .map(function(p) {
+                                return _.pluck(p.editions, "date");
+                            })
+                            .flatten()
+                            .value();
+                
+                return _.chain(timelineYears)
+                        .union(publicationYears)
+                        .sort()
+                        .uniq(false)
+                        .value();
+            },
+            getTimelineActivitiesPerType: function() {
+                return _.groupBy(this.getTimelineActivities().toJSON(), 'activity');
+            },
+            getYearPublications: function(year) {
+                return _.chain(this.getCollection("publications").toJSON())
+                        .filter(function(p) {
+                            return _.contains(_.pluck(p.editions, "date"), year);
+                        })
+                        .value();
+            },
+            getEventsBySubject: function() {
+                return _.chain(this.getCollection("activities")
+                                    .findAll({ activity: /^Εκδηλώσεις/})
+                                    .toJSON())
+                        .groupBy('subject')
+                        .sortBy(function(g) {
+                            return _.min(_.pluck(g, 'year'));
+                        })
+                        .value();
             }
         },
         collections: {
@@ -316,6 +358,10 @@
                                     element.setMeta("menuOrder", index + 1);
                                 });
                             });                                                            
+            },
+            activities: function() {
+                return this.getCollection("html")
+                           .findAllLive({ activity: { $exists: true } });    
             }
         },
         environments: {
