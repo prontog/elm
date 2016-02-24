@@ -9,6 +9,13 @@ editions:
       pages: 40
       info: 
       isbn: 
+      price:
+    - number: 2
+      date: 2004
+      place: Λευκάδα, Πνευματικό Κέντρο Δήμου Λευκάδας
+      pages: 48
+      info: 
+      isbn: 
       price: 5
 tag: [ Επετειακά - Αφιερώματα ]
 info: 

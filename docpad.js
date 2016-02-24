@@ -214,7 +214,7 @@
                 var boardPeriods = _.chain(this.getCollection("boards").toJSON())
                                     .groupBy("period")
                                     .map(function(p) {
-                                        p = _.sortBy(p, "from");
+                                        p = _.sortBy("from");
 
                                         return { period: _.first(p).period,
                                                  from: _.first(p).from,
@@ -225,13 +225,27 @@
                 
                 return boardPeriods;
             },
+            getBoards: function() {
+              var boards = this.getCollection("boards");
+                           
+                _.chain(boards.groupBy("period")).each(function(p) {
+                    _.chain(p)
+                     .sortBy(function(b) { return b.getMeta("from"); })
+                     .each(function(b, i) {
+                        b.setMeta("periodNumber", i + 1);
+                    });
+                });
+                
+                return boards;  
+            },
             getTimelineActivities: function() {
                 return this.getCollection("activities")
                            .findAll({ activity: { $in: ["Διαλέξεις", 
                                                         "Εκδηλώσεις", 
                                                         "Συμπόσια", 
                                                         "Συνέδρια", 
-                                                        "Παρουσίαση βιβλίων"] } });
+                                                        "Παρουσίαση βιβλίων",
+                                                        "Βραβεία Ακαδημίας Αθηνών"] } });
             },
             getTimelineYears: function() {
                 var timelineYears = this.getTimelineActivities()                                                            .pluck("year");

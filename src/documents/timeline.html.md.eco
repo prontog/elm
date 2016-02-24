@@ -1,0 +1,66 @@
+---
+title: Χρονολόγιο
+menuHidden: false
+menuOrder: 3
+---
+
+## 1970
+
+## Περίοδος (1η) Προεδρίας Βασιλείου Φραγκούλη (1970-1971)
+
+### Ίδρυση
+
+Ίδρυση της Εταιρείας Λευκαδικών Μελετών από τα ιδρυτικά της μέλη στην Αθήνα, 4 Μαρτίου 1970 και από την πρώτη Γενική Συνέλευση στις 10 Ιουλίου 1970 με εκλογή του πρώτου Διοικητικού Συμβουλίου: Πρόεδρος Βασίλειος Ε. Φραγκούλης, Αντιπρόεδρος Αριστόξενος Δ. Σκιαδάς, Γενικός Γραμματέας Ιωάννης Παπαδάτος, Ταμίας Νικόλαος Γράψας, Μέλη Πάνος Σάντας, Αντώνης Π. Φίλιππας, Γεράσιμος Γρηγόρης, Νίκος Κ. Κατηφόρης, Πάνος Γ. Ροντογιάννης. Το καταστατικό εγκρίθηκε από τις δικαστικές αρχές τον Δεκέμβριο του 1970.
+
+### Εκδόσεις
+
+*Καταστατικόν της «Εταιρείας Λευκαδικών Μελετών»,* Αθήνα 1970, 24 σ.
+
+<% boards = @getBoards().toJSON() %>
+<% activitiesByType = @getTimelineActivitiesPerType() %>
+
+<% printActivities = (year, type, title) => %>
+    <% if not title: %><% title = type %><% end %>
+    <% printHeader = true %>
+    <% for a in activitiesByType[type]: %>
+        <% if a.year is year: %>
+            <% if printHeader: %>
+### <%- title %>
+                <% printHeader = false %>
+            <% end %>
+<%- a.description %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% printPublications = (year) => %>
+    <% printHeader = true %>
+    <% for p in @getYearPublications(year): %>
+        <% if printHeader: %>
+### Εκδόσεις
+            <% printHeader = false %>
+        <% end %>
+    <% for e in p.editions: %>
+        <% if e.date is year: %>
+            <% p.e = e %>
+        <% end %>
+    <% end %>
+<% if p.author: %><%- p.author %>, <% end %>*<%- p.title %>*. <% if p.info: %><%- p.info %>,<% end %> <%- p.e.place %> <%- p.e.date%>, <%- p.e.pages %> σ.<% if p.e.info: %> <%- p.e.info %>.<% end %>
+    <% end %>
+<% end %>
+
+<% for year in @getTimelineYears(): %>
+## <%- year %>
+<% for b in boards: %>
+    <% if b.from is year: %>
+## Περίοδος (<%- b.periodNumber %><sup>η</sup>) Προεδρίας <%- b.period %> (<%- b.from %>-<%- b.until %>)
+    <% end %>
+<% end %>
+<%- printActivities(year, 'Βραβεία Ακαδημίας Αθηνών', 'Βραβείο') %>
+<%- printActivities(year, 'Συνέδρια', 'Συνέδριο') %>
+<%- printActivities(year, 'Συμπόσια', 'Συμπόσιο') %>
+<%- printActivities(year, 'Εκδηλώσεις') %>
+<%- printActivities(year, 'Διαλέξεις') %>
+<%- printActivities(year, 'Παρουσίαση βιβλίων') %>
+<%- printPublications(year) %>
+<% end %>
