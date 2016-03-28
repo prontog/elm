@@ -10,6 +10,7 @@ editions:
       price: 12 
 tag: [ Επετηρίς ]
 info: 
+otherInfo:
 ---
 
 Περιεχόμενα

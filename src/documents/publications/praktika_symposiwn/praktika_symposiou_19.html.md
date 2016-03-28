@@ -12,6 +12,7 @@ editions:
       price: 12
 tag: [ Πρακτικά Συμποσίων ]
 info: Πολιτισμικές Εκφράσεις της Επτανησιακής Ταυτότητας 17<sup>ος</sup>- 19<sup>ος</sup> αιώνας
+otherInfo:
 orderIndex: 2
 ---
 

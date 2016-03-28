@@ -10,6 +10,7 @@ editions:
       price: 35
 tag: [ Επετηρίς ]
 info: 
+otherInfo:
 ---
 
 ΜΕΛΕΤΕΣ

@@ -12,4 +12,5 @@ editions:
       price: 30
 tag: [ Λευκώματα ]
 info: Με το φακό του Γ. Ν. Φατούρου
+otherInfo:
 ---

@@ -12,4 +12,5 @@ editions:
       price: 4
 tag: [ Επετειακά - Αφιερώματα ]
 info: 
+otherInfo:
 ---

@@ -13,6 +13,7 @@ editions:
 tag: [ Πρακτικά Συνεδρίων ]
 extraPubInfo: ISBN (set): 960-7498-27-5
 info: Ο χώρος και τα δημογραφικά μορφώματα. Οι κύριοι συντελεστές της οικονομίας
+otherInfo:
 ---
 
 Τα πρακτικά του Ζ' Πανιονίου Συνεδρίου εκδόθηκαν σε δύο τόμους. Ο τόμος Α´ βρίσκεται [εδώ](/publications/praktika_synedriwn/praktika_synedriou_07_a.html).

@@ -13,6 +13,7 @@ editions:
 tag: [ Πρακτικά Συνεδρίων ]
 extraPubInfo: ISBN (set): 960-7498-27-5
 info: Ζητήματα πολιτισμικής ιστορίας
+otherInfo:
 ---
 
 Τα πρακτικά του Ζ' Πανιονίου Συνεδρίου εκδόθηκαν σε δύο τόμους. Ο τόμος Β´ βρίσκεται [εδώ](/publications/praktika_synedriwn/praktika_synedriou_07_b.html).

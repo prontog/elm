@@ -12,6 +12,7 @@ editions:
       price: 20
 tag: [ Μελέτες ]
 info: 
+otherInfo:
 ---
 
 *Περιεχόμενα*

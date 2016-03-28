@@ -12,6 +12,7 @@ editions:
       price: 18
 tag: [ Πρακτικά Συμποσίων ]
 info: Σύγχρονοι Λευκάδιοι Δημιουργοί
+otherInfo:
 orderIndex: 1
 ---
 
