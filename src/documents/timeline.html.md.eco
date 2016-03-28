@@ -45,7 +45,7 @@ menuOrder: 3
             <% p.e = e %>
         <% end %>
     <% end %>
-<% if p.author: %><%- p.author %>, <% end %>*<%- p.title %>*. <% if p.info: %><%- p.info %>,<% end %> <%- p.e.place %> <%- p.e.date%>, <%- p.e.pages %> σ.<% if p.e.info: %> <%- p.e.info %>.<% end %>
+<% if p.author: %><%- p.author %>, <% end %>*<%- p.title %>*. <% if p.contributors: %><%- p.contributors %>, <% end %><% if p.info: %><%- p.info %>, <% end %><%- p.e.place %> <%- p.e.date%>, <%- p.e.pages %> σ.<% if p.e.info: %> <%- p.e.info %>.<% end %> <% if p.otherInfo: %> <%- p.otherInfo %>.<% end %>
     <% end %>
 <% end %>
 
