@@ -213,16 +213,16 @@
             getBoardPeriods: function() {
                 var boardPeriods = _.chain(this.getCollection("boards").toJSON())
                                     .groupBy("period")
-                                    .map(function(p) {
-                                        p = _.sortBy("from");
+                                    .map(function(p) {                                        
+                                        p = _.sortBy(p, "from");
+                                        console.log(p);
 
                                         return { period: _.first(p).period,
                                                  from: _.first(p).from,
                                                  until: _.last(p).until };
                                     })
                                     .sortBy("from")
-                                    .value();
-                
+                                    .value();                
                 return boardPeriods;
             },
             getBoards: function() {
@@ -356,7 +356,7 @@
                                 var title = "Περίοδος " + period + " (" + from + "-" + until + ")";
                                 model.setMeta("title", title);
                                 model.setMeta("menuHidden", false );
-                                model.setMeta("layout", "board");                        
+                                model.setMeta("layout", "board");                                
                             });
             },
             chronicle: function() {             
