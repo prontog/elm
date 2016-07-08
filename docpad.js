@@ -214,8 +214,7 @@
                 var boardPeriods = _.chain(this.getCollection("boards").toJSON())
                                     .groupBy("period")
                                     .map(function(p) {                                        
-                                        p = _.sortBy(p, "from");
-                                        console.log(p);
+                                        p = _.sortBy(p, "from");     
 
                                         return { period: _.first(p).period,
                                                  from: _.first(p).from,
