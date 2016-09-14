@@ -197,10 +197,10 @@
                 return this.getCollection("publications").length - 3;
             },
             getSymposiumCount: function() {
-                return 20;
+                return this.getTimelineActivitiesPerType()['Συμπόσια'].length;
             },
             getConferenceCount: function() {
-                return 4 + 1;
+                return this.getTimelineActivitiesPerType()['Συνέδρια'].length;
             },
             getMajorEvents: function() {
                 return this.getConferenceCount() + this.getSymposiumCount();
