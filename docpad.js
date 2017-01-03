@@ -189,6 +189,7 @@
             getCurrentYear: function() {
                 return new Date().getFullYear();
             },
+            // Returns the years since the foundation of ELM in 1970. Same as Unix!
             getYears: function() {
                 return this.getCurrentYear() - 1970;
             },
@@ -202,6 +203,7 @@
             getConferenceCount: function() {
                 return this.getTimelineActivitiesPerType()['Συνέδρια'].length;
             },
+            // Major events are Symposiums and Conferences.
             getMajorEvents: function() {
                 return this.getConferenceCount() + this.getSymposiumCount();
             },
@@ -210,6 +212,7 @@
                 var bS = b.getMeta("year").toString().substr(0, 4);
                 return parseInt(aS) - parseInt(bS);
             },
+            // Returns the different board periods. Each period has a unique president.
             getBoardPeriods: function() {
                 var boardPeriods = _.chain(this.getCollection("boards").toJSON())
                                     .groupBy("period")
@@ -224,6 +227,8 @@
                                     .value();                
                 return boardPeriods;
             },
+            // Returns board of directors by period in chronological order. For
+            // every president of the board, a unique period is defined.
             getBoards: function() {
               var boards = this.getCollection("boards");
                            
@@ -237,6 +242,7 @@
                 
                 return boards;  
             },
+            // Returns all(?) activities for the timeline of ELM.
             getTimelineActivities: function() {
                 return this.getCollection("activities")
                            .findAll({ activity: { $in: ["Διαλέξεις", 
@@ -246,6 +252,7 @@
                                                         "Παρουσίαση βιβλίων",
                                                         "Βραβεία Ακαδημίας Αθηνών"] } });
             },
+            // Returns the years with at least one activity or publication. 
             getTimelineYears: function() {
                 var timelineYears = this.getTimelineActivities()                                                            .pluck("year");
                 
@@ -272,6 +279,7 @@
                         })
                         .value();
             },
+            // Returns the events grouped by the event subject.
             getEventsBySubject: function() {
                 return _.chain(this.getCollection("activities")
                                     .findAll({ activity: /^Εκδηλώσεις/})
