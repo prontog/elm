@@ -3,10 +3,13 @@ title: Τα νέα της Εταιρείας
 menuTitle: Νέα
 menuHidden: false
 menuOrder: 5
+isPaged: true
+pagedCollection: "news"
+pageSize: 10
 ---
 
 <div>
-    <% for page in @getCollection("news").toJSON(): %>
+    <% for page in @getPageCollection("news").toJSON(): %>
         <div>
             <h3 class="news-title"><%= page.title %></h3>
             <div class="news-date"><%= page.newsDate %></div>
@@ -15,4 +18,32 @@ menuOrder: 5
             </div>
         </div>
     <% end %>
+</div>
+
+<!-- Page Listing -->
+<div class="pagination">
+    <ul>
+        <!-- Previous Page Button -->
+        <% unless @hasPrevPage(): %>
+            <li class="disabled"><span>&lt;</span></li>
+        <% else: %>
+            <li><a href="<%= @getPrevPage() %>">&lt;</a></li>
+        <% end %>
+
+        <!-- Page Number Buttons -->
+        <% for pageNumber in [0..@document.page.count-1]: %>
+            <% if @document.page.number is pageNumber: %>
+                <li class="active"><span><%= pageNumber + 1 %></span></li>
+            <% else: %>
+                <li><a href="<%= @getPageUrl(pageNumber) %>"><%= pageNumber + 1 %></a></li>
+            <% end %>
+        <% end %>
+
+        <!-- Next Page Button -->
+        <% unless @hasNextPage(): %>
+            <li class="disabled"><span>&gt;</span></li>
+        <% else: %>
+            <li><a href="<%= @getNextPage() %>">&gt;</a></li>
+        <% end %>
+    </ul>
 </div>
