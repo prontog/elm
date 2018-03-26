@@ -15,9 +15,9 @@ Options:
 
 Note:
 
-  By default the images and documents directories are not deployed. 
+  By default the images and documents directories are not deployed.
   These directories rarely change and take most of the space.
-  
+
 EOF
     exit 1
 }
@@ -31,11 +31,11 @@ error() {
 # Parse options.
 while getopts ha currOption
 do
-	case $currOption in		
+	case $currOption in
 		h) usage
 			;;
 		a) DEPLOY=all
-			;;		
+			;;
         *) error "$currOption is not a valid option"
             ;;
 	esac
@@ -66,4 +66,4 @@ FILENAME=elm_$(date +%Y%m%d).zip
 # Compress everything into a zipped archive.
 zip -r $FILENAME *
 
-curl --ftp-create-dirs -T $FILENAME -u $FTP_USER:$FTP_PASSWORD $FTP_URL 
+curl --silent --ftp-create-dirs -T $FILENAME -u $FTP_USER:$FTP_PASSWORD $FTP_URL
