@@ -56,3 +56,5 @@ description: "Κ' Συμπόσιο στις Γιορτές Λόγου και Τ�
 |21:20-21:30 |ΕΥΧΑΡΙΣΤΙΕΣ, ΑΠΟΧΑΙΡΕΤΙΣΜΟΙ
 
 Δείτε την πρόσκληση [εδώ](/documents/prosklhsh_symposio_20.pdf)
+
+Τα [*Πρακτικά*](/publications/praktika_symposiwn/praktika_symposiou_20.html) εκδόθηκαν το 2016.
