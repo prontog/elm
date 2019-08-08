@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-    - "0.12.6"
+    - "6.17.1"
 env:
   global:
     - secure: "COS2obyRDepHhG8DfTeNWDGSnUmzQRwTH65b4lGX8TMrxndZUv+1dJmwphsh1o0twlSeW/3gPKyOE7Xvx8CddvEPBF5cARI0OMp71mCy//Dbk2WcbOIELbdYM8Hva3tWbf8uNdF0qjm9Wq8zDqnw0NoNIufVr47TfyG1IhZsgvI="
     - secure: "iRak0Wzi0BNKpKpBvcRzYTzhYDkNaWvAgNt2IFZsoYneA0yfv6KYA0V4LOXuiffypxyANWSi6BzdGKowadIpdopYwVQagtapuI/0yvyP08A4IpbsZ6pEcF4YV0LKRNqkAbsEC1cby5QhFkNLeo2HNoLZf9b38IR5LWuepqGY79k="
-    - secure: "PptK8ueW1SfaVF0lab1Sv65cNqj6RT91YSQWSqkgO6nS34w/8eaDmeXdNvN4H1lx8UotY1OJ9VxRJwe6hqJHmTVrN0fL63QANyGHQXIddJc5bbEqTncZbobaBAORKI4NM8nV2Yfztgv1OlrsuWmO6ncqK7zUFIlSwy9M0bp9JnA="    
+    - secure: "PptK8ueW1SfaVF0lab1Sv65cNqj6RT91YSQWSqkgO6nS34w/8eaDmeXdNvN4H1lx8UotY1OJ9VxRJwe6hqJHmTVrN0fL63QANyGHQXIddJc5bbEqTncZbobaBAORKI4NM8nV2Yfztgv1OlrsuWmO6ncqK7zUFIlSwy9M0bp9JnA="
 before_script:
     - "npm install -g grunt-cli"
 script:
