@@ -1,3 +1,4 @@
+SHELL := $(shell which bash)
 JPG_HEIGTH = x1024
 THUMB_HEIGTH = x400
 
