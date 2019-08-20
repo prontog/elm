@@ -3,8 +3,8 @@ title: Εκδόθηκαν τα πρακτικά του ΚΒ’ Συμποσίο�
 newsInfo: Κυκλοφόρησε στις αρχές Σεπτεμβρίου το 76<sup>ο</sup> δημοσίευμα της Εταιρείας Λευκαδικών Μελετών
 ---
 
-Κυκλοφόρησαν, στις αρχές Σεπτεμβρίου, τα *Πρακτικά του Συμποσίων ΚΒ’*. Οι εκδόσεις της Εταιρείας ανέρχονται πλέον στις 76.
+Κυκλοφόρησαν, στις αρχές Σεπτεμβρίου, τα *Πρακτικά του Συμποσίου ΚΒ’*. Οι εκδόσεις της Εταιρείας ανέρχονται πλέον στις 76.
 
-<% group = @getCollection("publications").findAll({ title: /Πρακτικά ΚΒ΄/ }, { orderIndex: 1 }).toJSON() %>    
+<% group = @getCollection("publications").findAll({ title: /Πρακτικά ΚΒ΄/ }, { orderIndex: 1 }).toJSON() %>
 <%- @partial("publication_list", { publications: group }) %>
 <%- @partial("publication_footer") %>
