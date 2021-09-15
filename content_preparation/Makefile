@@ -29,6 +29,11 @@ define PNG_to_JPG_template =
 images/jpg/$(1)/%.jpg: images/orig/$(1)/%.png
 	convert $$< -strip -quality 85 -resize ${JPG_HEIGTH} $$@
 endef
+# Template target for PNG image from JPEG image.
+define PDF_to_JPG_template =
+images/jpg/$(1)/%.jpg: images/orig/$(1)/%.pdf
+	convert $$< -strip -quality 85 -resize ${JPG_HEIGTH} $$@
+endef
 
 # Template target for thumbnails from TIFF image.
 define TIF_to_THUMB_template =
@@ -43,6 +48,11 @@ endef
 # Template target for thumbnails from PNG image.
 define PNG_to_THUMB_template =
 images/jpg/$(1)/%-th.jpg: images/orig/$(1)/%.png
+	convert $$< -strip -quality 85 -resize ${THUMB_HEIGTH} $$@
+endef
+# Template target for thumbnails from PNG image.
+define PDF_to_THUMB_template =
+images/jpg/$(1)/%-th.jpg: images/orig/$(1)/%.pdf
 	convert $$< -strip -quality 85 -resize ${THUMB_HEIGTH} $$@
 endef
 
@@ -64,9 +74,11 @@ $(foreach d, ${IMAGE_DIRS}, $(eval $(call create_dir_template,images/jpg/$(d),im
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call TIF_to_JPG_template,$(d))))
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call JPG_to_JPG_template,$(d))))
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call PNG_to_JPG_template,$(d))))
+$(foreach d, ${IMAGE_DIRS}, $(eval $(call PDF_to_JPG_template,$(d))))
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call TIF_to_THUMB_template,$(d))))
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call JPG_to_THUMB_template,$(d))))
 $(foreach d, ${IMAGE_DIRS}, $(eval $(call PNG_to_THUMB_template,$(d))))
+$(foreach d, ${IMAGE_DIRS}, $(eval $(call PDF_to_THUMB_template,$(d))))
 
 # pdf
 # convert -density 300 -trim %? -quality 85 -resize ${HEIGTH} $@
