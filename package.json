@@ -27,7 +27,7 @@
     "start": "node_modules/docpad/bin/docpad-server"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
+    "grunt": "^1.5.2",
     "grunt-stripmq": "0.0.6"
   }
 }
