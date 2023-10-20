@@ -1,0 +1,10 @@
+---
+title: Εκδόθηκαν τα πρακτικά του ΚE’ Συμποσίου
+newsInfo: Κυκλοφόρησε στις αρχές Σεπτεμβρίου το 87<sup>ο</sup> δημοσίευμα της Εταιρείας Λευκαδικών Μελετών
+---
+
+Κυκλοφόρησαν τα *Πρακτικά του Συμποσίου ΚΕ’*. Οι εκδόσεις της Εταιρείας ανέρχονται πλέον στις 87.
+
+<% group = @getCollection("publications").findAll({ title: /Πρακτικά ΚΕ’/ }, { orderIndex: 1 }).toJSON() %>
+<%- @partial("publication_list", { publications: group }) %>
+<%- @partial("publication_footer") %>
